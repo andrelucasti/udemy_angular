@@ -1,0 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Roboto');
+
+span.title-logo {
+   font-size: 0.9em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+span.title-sub-logo{
+    color: #bbb;
+}
+

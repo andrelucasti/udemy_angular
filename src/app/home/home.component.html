@@ -1,0 +1,125 @@
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-12 col-md-6">
+				
+					<span> Quantidade de itens por página:</span>
+					<select name="qtdItensPagina" id="idQtdItensPagina" class="form-control" style="width: 20%;">
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="50">50</option>
+					</select>
+					
+					<!--<div>
+						${msg}
+					</div> -->
+					
+				
+				<!-- <div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Ordenar por:</h3>
+					</div>
+					<div style="margin: 20px;">
+						
+						<label class="radio-inline"> 
+							<input type="radio"name="radioOptions" id="inlineRadio1" value="nome" checked="checked"> Nome
+						</label> 
+						
+						<label class="radio-inline"> 
+							<input type="radio" name="radioOptions" id="inlineRadio2" value="nuProntuario">Nº Prontuário
+						</label> 
+						
+						<label class="radio-inline"> 
+							<input type="radio"name="radioOptions" id="inlineRadio3" value="nuCartSus">Nº Sus
+						</label> 
+						
+						<label class="radio-inline"> 
+							<input type="radio"name="radioOptions" id="inlineRadio4" value="localArquivo">Localização em arquivo
+						</label>
+					</div>
+				</div> -->
+			</div>
+			<div class="col-sm-12 col-md-6">
+				<a href="#"
+					class="btn btn-primary" style="width: 100%;"> 
+					Novo <i class="material-icons">person_add</i> 
+				</a> <br> <br> 
+        <a
+					href="#" class="btn btn-secondary" style="width: 100%;">
+					Consultar <i class="material-icons">search</i>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12 col-md-8">
+				
+
+			</div>
+		</div>
+	
+		<br>	<br>	<br>
+		
+    <div class="row">
+			<div class="col-sm-12 col-md-12">
+				<table id="tabelaInicio" class="table table-bordered table-hover table-responsive">
+					<thead>
+						<tr>
+							<th> 
+								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span> 
+								Nome do usuário
+							</th> 
+							<th> 
+								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+								Nº Prontuário
+							</th>
+							<th>
+								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+								Nº SUS
+							</th>
+							<th>
+								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+								Localização em arq.
+							</th>
+							<th class="text-center">Editar</th>
+							<th class="text-center">Visualizar</th>
+							<th class="text-center">Excluir</th>
+						</tr>
+					</thead>
+
+          <tbody>
+                <tr>
+								<td> nome </td>
+								<td>888888888888</td>
+								<td>501 5401 4847 1231</td>
+								<td>A1</td>
+								<td class="text-center">
+                    <a href="" class="btn btn-primary"> 
+                      <i class="material-icons">mode_edit</i>
+								    </a>
+                </td>
+								<td class="text-center">
+									<button data-toggle="modal" data-target="" type="button" class="btn btn-info"> 
+                    <i class="material-icons">visibility</i>
+									</button>
+								</td>
+								<td class="text-center">
+									<button data-toggle="modal" data-target="" type="button" class="btn btn-danger"> 
+										<i class="material-icons">delete</i>
+									</button>
+								</td>
+							</tr>
+          </tbody>
+
+					<tfoot>
+
+					</tfoot>
+				</table>
+			</div>
+
+		</div>
+
+		<footer>
+
+		</footer>
+	</div>
