@@ -1,3 +1,161 @@
-<p>
-  form-insert-user works!
-</p>
+		<div class="container">
+		<form method="POST">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+	    			<h3 class="panel-title">Dados do usuário</h3>
+	  			</div>
+				
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<label for="inputNome">
+							<i class="material-icons">&#xE851;</i>
+							Nome do usuário
+						</label>
+						
+            <input type="text" name="nome" class="form-control" required />	
+					</div>
+					
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputNomeMae">
+									<i class="material-icons">&#xE853;</i>
+									Nome da mãe
+							</label>
+							<input type="text" name="nomeMae" class="form-control"  />	
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputDataNascimento">
+									<i class="material-icons">&#xE916;</i>
+									Data de nascimento
+							</label>
+						
+							<input type="text" name="dataNascimentoTexto" class="form-control date cadastro" required/>	
+							
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputDataTriagem">
+								<i class="material-icons">&#xE873;</i>
+									Número do prontuário
+							</label>
+							
+						
+							<input type="text" name="nuProntuario" class="form-control" required/>	
+
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputNumSus">
+									<i class="material-icons">&#xE8F7;</i>
+									Número do cartão SUS
+							</label>
+					
+							<input type="text" name="nuCartSus" class="form-control" id="nuCartSus" required />	
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputDataTriagem">
+									<i class="material-icons">&#xE916;</i>
+									Data da triágem
+							</label>
+							<input type="text" name="dataTriagem" class="form-control date cadastro" required/>	 
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputLocalArquivo">
+									<i class="material-icons">&#xE89B;</i>
+									Localização em arquivo
+							</label>
+					
+							<input type="text" name="localEmArquivo" class="form-control" required/>	
+							
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputTipoDroga">
+									<i class="material-icons">&#xE6DD;</i>
+									Tipo de droga
+							</label>
+													
+							<input type="text" name="tipoDroga" class="form-control" required/>
+							
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputNuTelefone">
+									<i class="material-icons">&#xE0B0;</i>
+									Telefone
+							</label>
+							
+					 		<input type="text" name="nuTelefone" class="form-control" id="nuTelefone"/>
+							
+						</div>
+					</div>
+				</div>
+		</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+    				<h3 class="panel-title"><i class="material-icons">&#xE0C8;</i>Endereço</h3>
+  				</div>
+  				
+  				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<input name="endereco.rua" class="form-control"  placeholder="Rua"/>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<input name="endereco.complemento" class="form-control"  placeholder="Complemento"/>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<input name="endereco.bairro" class="form-control"  placeholder="Bairro"/>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<input name="endereco.cep" class="form-control"  placeholder="Cep"/>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+              
+							<select class="form-control">
+                  <option>Estado</option>
+              </select>
+							
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+
+							<select class="form-control">
+                  <option>Cidade</option>
+              </select>
+							
+						</div>
+					</div>
+				</div>
+  			</div>		
+  			
+  			<div class="row">
+  				<div class="col-sm-12 col-md-6">
+					<button type="submit" class="btn btn-primary" style="width: 100%;">Salvar</button>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<button type="button" class="btn btn-danger" style="width: 100%;">Voltar</button>
+				</div>			
+  			</div>					
+		</form>
+		</div>

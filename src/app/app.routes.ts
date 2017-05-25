@@ -5,7 +5,7 @@ import {FormInsertUserComponent} from './form-insert-user/form-insert-user.compo
 import {FormQueryUserComponent} from './form-query-user/form-query-user.component';
 
 export const ROUTES: Routes = [
-    {path:'', component:HomeComponent},
-    {path:'new', component:FormInsertUserComponent},
-    {path:'query', component:FormQueryUserComponent},
+    {path: '', component: HomeComponent},
+    {path: 'new', component: FormInsertUserComponent},
+    {path: 'query', component: FormQueryUserComponent}
 ]
