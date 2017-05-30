@@ -9,16 +9,21 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { FormInsertUserComponent } from './form-insert-user/form-insert-user.component';
-import { FormQueryUserComponent } from './form-query-user/form-query-user.component';
 import { ROUTES } from './app.routes';
+import { FormComponent } from './form/form.component';
+import { FormInsertUserComponent } from './form/form-insert-user/form-insert-user.component';
+import { FormEditUserComponent } from './form/form-edit-user/form-edit-user.component';
+import { FormGetUserComponent } from './form/form-get-user/form-get-user.component'
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    FormComponent,
     FormInsertUserComponent,
-    FormQueryUserComponent
+    FormEditUserComponent,
+    FormGetUserComponent
   ],
   imports: [
     BrowserModule,
