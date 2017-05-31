@@ -1,4 +1,4 @@
-		<div class="container">
+		<div class="container fluid">
 		<form method="POST" action="{{actionPathUrl}}">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -12,7 +12,7 @@
 							Nome do usuário
 						</label>
 						
-            <input type="text" name="nome" class="form-control" required />	
+           				 <input type="text" name="nome" class="form-control" required />	
 					</div>
 					
 					<div class="col-sm-12 col-md-6">
@@ -59,7 +59,7 @@
 					</div>
 					
           
-          <div class="col-sm-12 col-md-6">
+          			<div class="col-sm-12 col-md-6">
 						<div class="form-group">
 							<label for="inputLocalArquivo">
 									<i class="material-icons">&#xE89B;</i>
@@ -81,25 +81,6 @@
 							
 						</div>
 					</div>
-          <div  *ngIf="isColecaoDataTriagem" class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<!--Colecao de datas chama o modal de datas-->
-							 	<button class="btn btn-warning" style="width: 50%; margin-top: 40px; float: right;">{{nameButtonDataTriagem}}</button>
-						</div>
-					</div>
-
-          					
-          <div  *ngIf="!isColecaoDataTriagem" class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputDataTriagem">
-									<i class="material-icons">&#xE916;</i>
-									Data da triágem
-							</label>
-							<input type="text" name="dataTriagem" class="form-control date cadastro" required/>	 
-						</div>
-					</div>
-					
-					
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
 							<label for="inputNuTelefone">
@@ -109,6 +90,28 @@
 							
 					 		<input type="text" name="nuTelefone" class="form-control" id="nuTelefone"/>
 							
+						</div>
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						
+					</div>
+          			
+					<div  *ngIf="isColecaoDataTriagem" class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<!--Colecao de datas chama o modal de datas-->
+							 	<button class="btn btn-warning" style="width: 100%;">{{nameButtonDataTriagem}}</button>
+						</div>
+					</div>
+
+          					
+          			<div  *ngIf="!isColecaoDataTriagem" class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="inputDataTriagem">
+									<i class="material-icons">&#xE916;</i>
+									Data da triágem
+							</label>
+							<input type="text" name="dataTriagem" class="form-control date cadastro" required/>	 
 						</div>
 					</div>
 				</div>

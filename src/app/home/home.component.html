@@ -86,20 +86,20 @@
 						</tr>
 					</thead>
 
-          <tbody>
-                <tr>
-								<td> nome </td>
-								<td>888888888888</td>
-								<td>501 5401 4847 1231</td>
-								<td>A1</td>
+         		 <tbody>
+						<tr *ngFor="let usuario of colecaoUsuarios">
+							<td> {{usuario.nome}} </td>
+							<td> {{usuario.nuProntuario}} </td>
+							<td> {{usuario.nuCartSus}} </td>
+							<td> {{usuario.localEmArquivo}} </td>
 								<td class="text-center">
-                    <a href="" class="btn btn-primary"> 
-                      <i class="material-icons">mode_edit</i>
-								    </a>
-                </td>
+									<a href="" class="btn btn-primary"> 
+										<i class="material-icons">mode_edit</i>
+									</a>
+               					</td>
 								<td class="text-center">
 									<button data-toggle="modal" data-target="" type="button" class="btn btn-info"> 
-                    <i class="material-icons">visibility</i>
+                   						 <i class="material-icons">visibility</i>
 									</button>
 								</td>
 								<td class="text-center">
@@ -108,7 +108,7 @@
 									</button>
 								</td>
 							</tr>
-          </tbody>
+         			 </tbody>
 
 					<tfoot>
 

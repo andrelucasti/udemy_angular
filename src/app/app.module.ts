@@ -13,7 +13,9 @@ import { ROUTES } from './app.routes';
 import { FormComponent } from './form/form.component';
 import { FormInsertUserComponent } from './form/form-insert-user/form-insert-user.component';
 import { FormEditUserComponent } from './form/form-edit-user/form-edit-user.component';
-import { FormGetUserComponent } from './form/form-get-user/form-get-user.component'
+import { FormGetUserComponent } from './form/form-get-user/form-get-user.component';
+import { UsuariosService } from "app/services/usuarios.service";
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { FormGetUserComponent } from './form/form-get-user/form-get-user.compone
     FormComponent,
     FormInsertUserComponent,
     FormEditUserComponent,
-    FormGetUserComponent
+    FormGetUserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { FormGetUserComponent } from './form/form-get-user/form-get-user.compone
     RouterModule.forRoot(ROUTES)
     
   ],
-  providers: [],
+  providers: [UsuariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

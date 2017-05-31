@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Usuario } from "app/models/usuario.model";
+import { UsuariosService } from "app/services/usuarios.service";
+
 @Component({
   selector: 'cps-home',
   templateUrl: './home.component.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  colecaoUsuarios: Usuario[]
+
+  constructor(private usuarioService: UsuariosService) {}
 
   ngOnInit() {
+    this.usuarioService.getUsuarios().subscribe(pUsuarios => this.colecaoUsuarios = pUsuarios);
   }
-
+  
 }
