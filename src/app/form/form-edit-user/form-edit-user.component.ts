@@ -12,4 +12,7 @@ export class FormEditUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  editSubmit():void{
+    alert("submit in the form edit");
+  }
 }

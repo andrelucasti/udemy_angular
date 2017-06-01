@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms'
+
+import { Usuario } from "app/models/usuario.model";
 
 @Component({
   selector: 'cps-form',
@@ -21,10 +24,23 @@ isColecaoDataTriagem: boolean
 @Input()
 actionPathUrl: string 
 
+@Output()
+submit = new EventEmitter<Usuario>();
+
+
   ngOnInit() {
     this.formatFieldMask();
   }
 
+  usuario:Usuario = new Usuario();
+  
+  eventSubmit(pUsuario:Usuario){
+   this.submit.emit(pUsuario)
+  }
+
+  historyback(){
+    window.history.back();
+  }
 
 
 

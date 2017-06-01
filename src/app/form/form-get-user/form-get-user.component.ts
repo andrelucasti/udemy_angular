@@ -12,4 +12,9 @@ export class FormGetUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  getUserSubmit():void{
+    alert("submit in the form get");
+
+  }
+
 }

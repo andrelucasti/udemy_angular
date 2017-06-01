@@ -12,7 +12,8 @@
 							Nome do usuário
 						</label>
 						
-           				 <input type="text" name="nome" class="form-control" required />	
+           				 <input type="text" name="nome" class="form-control" required [(ngModel)]="usuario.nome" />	
+							
 					</div>
 					
 					<div class="col-sm-12 col-md-6">
@@ -21,7 +22,7 @@
 									<i class="material-icons">&#xE853;</i>
 									Nome da mãe
 							</label>
-							<input type="text" name="nomeMae" class="form-control"  />	
+							<input type="text" name="nomeMae" class="form-control"  [(ngModel)]="usuario.nomeMae"/>	
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
@@ -31,19 +32,19 @@
 									Data de nascimento
 							</label>
 						
-							<input type="text" name="dataNascimentoTexto" class="form-control date cadastro" required/>	
+							<input type="text" name="dataNascimentoTexto" class="form-control date cadastro" [(ngModel)]="usuario.dataNascimentoTexto" required/>	
 							
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-							<label for="inputDataTriagem">
+							<label for="inputNuProtuario">
 								<i class="material-icons">&#xE873;</i>
 									Número do prontuário
 							</label>
 							
 						
-							<input type="text" name="nuProntuario" class="form-control" required/>	
+							<input type="text" name="nuProntuario" class="form-control" [(ngModel)]="usuario.nuProtuario" required/>	
 
 						</div>
 					</div>
@@ -166,10 +167,10 @@
   			
   			<div class="row">
   				<div class="col-sm-12 col-md-6">
-					<button type="submit" class="btn btn-primary" style="width: 100%;">{{nameButtonSubmit}}</button>
+					<button type="button" (click)="eventSubmit(usuario)" class="btn btn-primary" style="width: 100%;">{{nameButtonSubmit}}</button>
 				</div>
 				<div class="col-sm-12 col-md-6">
-					<button type="button" class="btn btn-danger" style="width: 100%;">Voltar</button>
+					<button type="button" (click)="historyback()" class="btn btn-danger"  style="width: 100%;">Voltar</button>
 				</div>			
   			</div>					
 		</form>

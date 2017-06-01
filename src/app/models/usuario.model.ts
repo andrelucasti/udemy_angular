@@ -1,7 +1,9 @@
 import { Endereco } from './endereco.model'
 import { DataTriagem } from "app/models/data-triagem.model";
 
-export interface Usuario {
+export class Usuario {
+
+    constructor(){}
 
     id:                     number
     nuProntuario:           number
@@ -13,6 +15,7 @@ export interface Usuario {
     localEmArquivo:         string
     tipoDroga:              string
     nuTelefone:             string
+    dataNascimentoTexto:    string
        
     endereco:               Endereco
     
