@@ -22,6 +22,12 @@ export class UsuariosService {
 
    }
 
+
+  //Falta TESTAR!!!
+  saveUsers(pUsuario:Usuario): Observable<Response>{
+    return this.http.post(`${CAPSRNRB_HOST}/capsadrnrb/service/usuarios/`, JSON.stringify(pUsuario)).map(response => response.json());
+  }
+
   
 
 }
