@@ -1,7 +1,6 @@
 import { Cidade } from "app/models/cidade.model";
 
-export class Endereco {
-    constructor(){}
+export interface Endereco {
 
     id:             number
     numero:         number

@@ -16,17 +16,26 @@ export class UsuariosService {
 
    getUsuarios(): Observable<Usuario[]>{
 
-   return this.http.get(`${CAPSRNRB_HOST}/capsadrnrb/service/usuarios/`)
+   return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/`)
+      .map(response => response.json());
+
+
+   }
+
+    getUsuario(pId): Observable<Usuario>{
+
+   return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/${pId}`)
       .map(response => response.json());
 
 
    }
 
 
+
   //Falta TESTAR!!!
-  saveUsers(pUsuario:Usuario): Observable<Response>{
+ /* saveUsers(pUsuario:Usuario): Observable<Response>{
     return this.http.post(`${CAPSRNRB_HOST}/capsadrnrb/service/usuarios/`, JSON.stringify(pUsuario)).map(response => response.json());
-  }
+  }*/
 
   
 

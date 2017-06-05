@@ -1,5 +1,4 @@
-export class DataTriagem {
-    constructor(){}
+export interface DataTriagem {
     id:             number
     dataTriagem:    number
 

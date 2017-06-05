@@ -15,6 +15,7 @@ import { FormInsertUserComponent } from './form/form-insert-user/form-insert-use
 import { FormEditUserComponent } from './form/form-edit-user/form-edit-user.component';
 import { FormGetUserComponent } from './form/form-get-user/form-get-user.component';
 import { UsuariosService } from "app/services/usuarios.service";
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { UsuariosService } from "app/services/usuarios.service";
     FormInsertUserComponent,
     FormEditUserComponent,
     FormGetUserComponent,
+    ModalComponent,
     
   ],
   imports: [

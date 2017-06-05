@@ -1,5 +1,4 @@
-export class Estado {
-  constructor(){}
+export interface Estado {
   
    id:      number
 

@@ -1,8 +1,7 @@
 import { Estado } from "app/models/estado.model";
 
-export class Cidade {
-    constructor(){}
-
+export interface Cidade {
+    
     id:     number
 
     nome:   string

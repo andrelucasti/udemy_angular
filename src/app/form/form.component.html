@@ -12,7 +12,7 @@
 							Nome do usuário
 						</label>
 						
-           				 <input type="text" name="nome" class="form-control" required [(ngModel)]="usuario.nome" />	
+           				 <input type="text" name="nome" class="form-control" required [value]="usuario?.nome" />	
 							
 					</div>
 					
@@ -22,7 +22,7 @@
 									<i class="material-icons">&#xE853;</i>
 									Nome da mãe
 							</label>
-							<input type="text" name="nomeMae" class="form-control"  [(ngModel)]="usuario.nomeMae"/>	
+							<input type="text" name="nomeMae" class="form-control"  [value]="usuario?.nomeMae"/>	
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
@@ -32,7 +32,7 @@
 									Data de nascimento
 							</label>
 						
-							<input type="text" name="dataNascimentoTexto" class="form-control date cadastro" [(ngModel)]="usuario.dataNascimentoTexto" required/>	
+							<input type="text" name="dataNascimentoTexto" class="form-control date cadastro" [value]="usuario?.dataNascimentoTexto" required/>	
 							
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 							</label>
 							
 						
-							<input type="text" name="nuProntuario" class="form-control" [(ngModel)]="usuario.nuProtuario" required/>	
+							<input type="text" name="nuProntuario" class="form-control" [value]="usuario?.nuProtuario" required/>	
 
 						</div>
 					</div>
@@ -55,7 +55,7 @@
 									Número do cartão SUS
 							</label>
 					
-							<input type="text" name="nuCartSus" class="form-control" id="nuCartSus" required />	
+							<input type="text" name="nuCartSus" class="form-control" id="nuCartSus" required [value]="usuario?.nuCartSus"/>	
 						</div>
 					</div>
 					

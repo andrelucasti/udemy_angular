@@ -32,9 +32,10 @@ submit = new EventEmitter<Usuario>();
     this.formatFieldMask();
   }
 
-  usuario:Usuario = new Usuario();
+  usuario:Usuario
   
   eventSubmit(pUsuario:Usuario){
+    alert(this.usuario.nome)
    this.submit.emit(pUsuario)
   }
 

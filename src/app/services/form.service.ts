@@ -15,13 +15,13 @@ export class FormService {
   constructor(private http: Http) { }
 
   getEstados():Observable<Estado[]>{
-    return this.http.get(`${CAPSRNRB_HOST}/capsadrnrb/service/usuarios/estados`)
+    return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/estados`)
     .map(response => response.json())
   }
 
   getCidades(pIdEstado):Observable<Cidade[]>{
     
-    return this.http.get(`${CAPSRNRB_HOST}/capsadrnrb/service/usuarios/cidades/${pIdEstado}`)
+    return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/cidades/${pIdEstado}`)
     .map(response => response.json());
   }
 
