@@ -1,7 +1,13 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
+import { FormService } from "app/services/form.service";
+import { UsuariosService } from "app/services/usuarios.service";
+import { Estado } from "app/models/estado.model";
+import { Cidade } from "app/models/cidade.model";
 import { Usuario } from "app/models/usuario.model";
+import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'cps-form',
@@ -10,7 +16,9 @@ import { Usuario } from "app/models/usuario.model";
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formService:FormService, 
+              private usuarioService: UsuariosService,
+              private route: ActivatedRoute) {  }
 
 @Input()
 nameButtonSubmit: string
@@ -28,19 +36,29 @@ actionPathUrl: string
 submit = new EventEmitter<Usuario>();
 
 
+
+
+colecaoEstados:Estado[]
+colecaoCidades:Cidade[]
+usuario:Usuario
+
+
   ngOnInit() {
     this.formatFieldMask();
-  }
-
-  usuario:Usuario
+    this.formService.getEstados().subscribe(pEstados => this.colecaoEstados = pEstados)
+    this.usuarioService.getUsuarioById(this.route.snapshot.params['id']).subscribe(pUsuario => this.usuario = pUsuario)
+    this.formService.getCidades(this.route.snapshot.params['idEstado']).subscribe(pCidades => this.colecaoCidades = pCidades);
+   
   
-  eventSubmit(pUsuario:Usuario){
-    alert(this.usuario.nome)
-   this.submit.emit(pUsuario)
+  }
+  
+  eventSubmit(){
+   this.submit.emit()
   }
 
-  historyback(){
-    window.history.back();
+
+  ngChange(pValue){
+    this.formService.getCidades(pValue).subscribe(pCidades => this.colecaoCidades = pCidades);
   }
 
 

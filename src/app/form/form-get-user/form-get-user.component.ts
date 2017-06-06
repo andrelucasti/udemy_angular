@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Usuario } from "app/models/usuario.model";
 
 @Component({
   selector: 'cps-form-get-user',
@@ -9,12 +10,21 @@ export class FormGetUserComponent implements OnInit {
 
   constructor() { }
 
+  
+
   ngOnInit() {
+  }
+
+  ngAfterViewInit(){
+    
   }
 
   getUserSubmit():void{
     alert("submit in the form get");
+    
 
   }
+
+  
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from "app/models/usuario.model";
+
 
 @Component({
   selector: 'cps-form-insert-user',
@@ -13,9 +13,9 @@ export class FormInsertUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  insertSubmit(pUsuario:Usuario):void{
+  insertSubmit():void{
     alert("submit no inserir");
-    alert(`Nome do usuario:`+pUsuario.nome);
+    alert(`Nome do usuario:`);
   }
 
 

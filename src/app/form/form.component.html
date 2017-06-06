@@ -12,7 +12,7 @@
 							Nome do usuário
 						</label>
 						
-           				 <input type="text" name="nome" class="form-control" required [value]="usuario?.nome" />	
+           				 <input type="text" name="nome" class="form-control"  [value]="usuario?.nome"  required />	
 							
 					</div>
 					
@@ -22,7 +22,7 @@
 									<i class="material-icons">&#xE853;</i>
 									Nome da mãe
 							</label>
-							<input type="text" name="nomeMae" class="form-control"  [value]="usuario?.nomeMae"/>	
+							<input type="text" name="nomeMae" class="form-control"  [value]="usuario?.nomeMae" />	
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
@@ -32,7 +32,7 @@
 									Data de nascimento
 							</label>
 						
-							<input type="text" name="dataNascimentoTexto" class="form-control date cadastro" [value]="usuario?.dataNascimentoTexto" required/>	
+							<input type="text" name="dataNascimento" class="form-control date cadastro" [value]="usuario?.dataNascimento"  required/>	
 							
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 							</label>
 							
 						
-							<input type="text" name="nuProntuario" class="form-control" [value]="usuario?.nuProtuario" required/>	
+							<input type="text" name="nuProntuario" class="form-control" [value]="usuario?.nuProntuario" required/>	
 
 						</div>
 					</div>
@@ -55,7 +55,7 @@
 									Número do cartão SUS
 							</label>
 					
-							<input type="text" name="nuCartSus" class="form-control" id="nuCartSus" required [value]="usuario?.nuCartSus"/>	
+							<input type="text" name="nuCartSus" class="form-control" id="nuCartSus" [value]="usuario?.nuCartSus" />	
 						</div>
 					</div>
 					
@@ -67,7 +67,7 @@
 									Localização em arquivo
 							</label>
 					
-							<input type="text" name="localEmArquivo" class="form-control" required/>	
+							<input type="text" name="localEmArquivo" class="form-control" [value]="usuario?.localEmArquivo" required />	
 							
 						</div>
 					</div>
@@ -78,7 +78,7 @@
 									Tipo de droga
 							</label>
 													
-							<input type="text" name="tipoDroga" class="form-control" required/>
+							<input type="text" name="tipoDroga" class="form-control" [value]="usuario?.tipoDroga" required/>
 							
 						</div>
 					</div>
@@ -89,7 +89,7 @@
 									Telefone
 							</label>
 							
-					 		<input type="text" name="nuTelefone" class="form-control" id="nuTelefone"/>
+					 		<input type="text" name="nuTelefone" class="form-control" id="nuTelefone" [value]="usuario?.nuTelefone" />
 							
 						</div>
 					</div>
@@ -126,39 +126,45 @@
   				<div class="row">
 					<div class="col-sm-12 col-md-12">
 						<div class="form-group">
-							<input name="endereco.rua" class="form-control"  placeholder="Rua"/>
+							<input name="rua" class="form-control"  placeholder="Rua" [value]="usuario?.endereco.rua"/>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-12">
 						<div class="form-group">
-							<input name="endereco.complemento" class="form-control"  placeholder="Complemento"/>
+							<input name="complemento" class="form-control"  placeholder="Complemento" [value]="usuario?.endereco.complemento" />
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-							<input name="endereco.bairro" class="form-control"  placeholder="Bairro"/>
+							<input name="bairro" class="form-control"  placeholder="Bairro" [value]="usuario?.endereco.bairro"/>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-							<input name="endereco.cep" class="form-control"  placeholder="Cep"/>
+							<input name="cep" class="form-control"  placeholder="Cep" [value]="usuario?.endereco.cep"/>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
               
-							<select class="form-control">
-                  <option>Estado</option>
-              </select>
+							<select class="form-control" (change)="ngChange($event.target.value)" [value]="usuario?.endereco.cidade.estado.id">
+                  				<option>Estado</option>
+								
+								<option *ngFor="let estado of colecaoEstados" value="{{estado.id}}">{{estado.nome}}</option> 
+
+             				 </select>
 							
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
 
-							<select class="form-control">
-                  <option>Cidade</option>
-              </select>
+
+								
+							<select class="form-control" [value]="usuario?.endereco.cidade.id">
+                  				<option>Cidade</option>
+								<option *ngFor="let cidade of colecaoCidades" value="{{cidade.id}}">{{cidade.nome}}</option> 
+              				</select>
 							
 						</div>
 					</div>
@@ -167,10 +173,10 @@
   			
   			<div class="row">
   				<div class="col-sm-12 col-md-6">
-					<button type="button" (click)="eventSubmit(usuario)" class="btn btn-primary" style="width: 100%;">{{nameButtonSubmit}}</button>
+					<button type="button" (click)="eventSubmit()" class="btn btn-primary" style="width: 100%;">{{nameButtonSubmit}}</button>
 				</div>
 				<div class="col-sm-12 col-md-6">
-					<button type="button" (click)="historyback()" class="btn btn-danger"  style="width: 100%;">Voltar</button>
+					<a [routerLink]="['']" class="btn btn-danger"  style="width: 100%;">Voltar</a>
 				</div>			
   			</div>					
 		</form>
