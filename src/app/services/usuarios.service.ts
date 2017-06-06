@@ -22,7 +22,7 @@ export class UsuariosService {
 
    }
 
-    getUsuario(pId): Observable<Usuario>{
+    getUsuarioById(pId): Observable<Usuario>{
 
    return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/${pId}`)
       .map(response => response.json());

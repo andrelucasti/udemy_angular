@@ -44,7 +44,7 @@
 					Novo <i class="material-icons">person_add</i> 
 				</a> <br> <br> 
         		
-				<a [routerLink]="['/query']" class="btn btn-secondary" style="width: 100%;">
+				<a [routerLink]="['/user']" class="btn btn-secondary" style="width: 100%;">
 					Consultar <i class="material-icons">search</i>
 				</a>
 			</div>
@@ -98,14 +98,14 @@
 									</a>
                					</td>
 								<td class="text-center">
-									<button data-toggle="modal" data-target="#modalVisibilty" type="button" class="btn btn-info"> 
+									<a [routerLink]="['/user', usuario.id, usuario.endereco.cidade.estado.id]" class="btn btn-info"> 
                    						 <i class="material-icons">visibility</i>
-									</button>
+									</a>
 								</td>
 								<td class="text-center">
-									<button data-toggle="modal" data-target="#modalDelete" type="button" class="btn btn-danger"> 
+									<a data-toggle="modal" href="#modalDelete{{usuario.id}}" class="btn btn-danger" > 
 										<i class="material-icons">delete</i>
-									</button>
+									</a>
 								</td>
 							</tr>
          			 </tbody>
@@ -123,9 +123,12 @@
 		</footer>
 	</div>
 
+	<div *ngFor="let usuario of colecaoUsuarios">
 
-	<cps-modal
-	
-	>
+		<cps-modal-usuario-delete
+			[usuario] = "usuario"
+			>
+		</cps-modal-usuario-delete>	
 
-	</cps-modal>
+
+	</div>

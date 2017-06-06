@@ -1,6 +1,7 @@
-<div class="modal fade" id="modalDelete">
+<div class="modal fade" id="modalDelete{{usuario?.id}}">
   <div class="modal-dialog" role="document">
-    <div class="modal-content"> 
+   
+    <div class="modal-content" ng-if="typeModal==MODAL_DELETE"> 
       <div class="modal-header">
         <h5 class="modal-title">Deseja remover o usuário:</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -14,10 +15,14 @@
         </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">Sim</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+        <a href="#" class="btn btn-success">Sim</a>
+        <a href="#" class="btn btn-danger" data-dismiss="modal">Não</a>
       </div>
     </div>
+
   </div>
 </div>
+
+
+
 

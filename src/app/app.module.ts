@@ -15,7 +15,9 @@ import { FormInsertUserComponent } from './form/form-insert-user/form-insert-use
 import { FormEditUserComponent } from './form/form-edit-user/form-edit-user.component';
 import { FormGetUserComponent } from './form/form-get-user/form-get-user.component';
 import { UsuariosService } from "app/services/usuarios.service";
-import { ModalComponent } from './modal/modal.component';
+import { FormService } from "app/services/form.service";
+import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-usuario-delete.component';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ModalComponent } from './modal/modal.component';
     FormInsertUserComponent,
     FormEditUserComponent,
     FormGetUserComponent,
-    ModalComponent,
+    ModalUsuarioDeleteComponent,
+
     
   ],
   imports: [
@@ -37,7 +40,7 @@ import { ModalComponent } from './modal/modal.component';
     RouterModule.forRoot(ROUTES)
     
   ],
-  providers: [UsuariosService],
+  providers: [UsuariosService, FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
