@@ -14,9 +14,12 @@ import { FormComponent } from './form/form.component';
 import { FormInsertUserComponent } from './form/form-insert-user/form-insert-user.component';
 import { FormEditUserComponent } from './form/form-edit-user/form-edit-user.component';
 import { FormGetUserComponent } from './form/form-get-user/form-get-user.component';
-import { UsuariosService } from "app/services/usuarios.service";
+
+import { UserService } from "app/services/user.service";
 import { FormService } from "app/services/form.service";
 import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-usuario-delete.component';
+import { ModalScreeningDateComponent } from './form/modal-screening-date/modal-screening-date.component';
+import { ModalAddScreeningDateComponent } from './form/modal-screening-date/modal-add-screening-date/modal-add-screening-date.component';
 
 
 
@@ -30,6 +33,8 @@ import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-u
     FormEditUserComponent,
     FormGetUserComponent,
     ModalUsuarioDeleteComponent,
+    ModalScreeningDateComponent,
+    ModalAddScreeningDateComponent,
 
     
   ],
@@ -40,7 +45,7 @@ import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-u
     RouterModule.forRoot(ROUTES)
     
   ],
-  providers: [UsuariosService, FormService],
+  providers: [UserService, FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

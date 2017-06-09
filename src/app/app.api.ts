@@ -1,1 +1,1 @@
-export const CAPSRNRB_HOST = 'http://localhost:8080/capsadrnrb'
+export const CAPSRNRB_HOST = 'http://localhost:8181'

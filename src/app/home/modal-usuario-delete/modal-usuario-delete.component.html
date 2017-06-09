@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalDelete{{usuario?.id}}">
+<div class="modal fade" id="modalDelete{{user?.id}}">
   <div class="modal-dialog" role="document">
    
     <div class="modal-content" ng-if="typeModal==MODAL_DELETE"> 
@@ -11,11 +11,11 @@
       <div class="modal-body">
         <p> 
             Usuário:
-            {{usuario?.nome}}
+            {{user?.nome}}
         </p>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn btn-success">Sim</a>
+        <a href="#" class="btn btn-success" data-dismiss="modal" (click)="deleteUsuario(user?.id)">Sim</a>
         <a href="#" class="btn btn-danger" data-dismiss="modal">Não</a>
       </div>
     </div>

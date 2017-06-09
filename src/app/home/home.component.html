@@ -87,23 +87,23 @@
 					</thead>
 
          		 <tbody>
-						<tr *ngFor="let usuario of colecaoUsuarios">
-							<td> {{usuario.nome}} </td>
-							<td> {{usuario.nuProntuario}} </td>
-							<td> {{usuario.nuCartSus}} </td>
-							<td> {{usuario.localEmArquivo}} </td>
+						<tr *ngFor="let user of listUser">
+							<td> {{user.name}} </td>
+							<td> {{user.nuProntuario}} </td>
+							<td> {{user.nuCartSus}} </td>
+							<td> {{user.fileLocal}} </td>
 								<td class="text-center">
 									<a href="" class="btn btn-primary"> 
 										<i class="material-icons">mode_edit</i>
 									</a>
                					</td>
 								<td class="text-center">
-									<a [routerLink]="['/user', usuario.id, usuario.endereco.cidade.estado.id]" class="btn btn-info"> 
+									<a [routerLink]="['/user', user.id, user.address.city.state.id]" class="btn btn-info"> 
                    						 <i class="material-icons">visibility</i>
 									</a>
 								</td>
 								<td class="text-center">
-									<a data-toggle="modal" href="#modalDelete{{usuario.id}}" class="btn btn-danger" > 
+									<a data-toggle="modal" href="#modalDelete{{user.id}}" class="btn btn-danger" > 
 										<i class="material-icons">delete</i>
 									</a>
 								</td>
@@ -123,10 +123,10 @@
 		</footer>
 	</div>
 
-	<div *ngFor="let usuario of colecaoUsuarios">
+	<div *ngFor="let user of listUser">
 
 		<cps-modal-usuario-delete
-			[usuario] = "usuario"
+			[user] = "user"
 			>
 		</cps-modal-usuario-delete>	
 

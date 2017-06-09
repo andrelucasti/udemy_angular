@@ -13,6 +13,6 @@ export class FormEditUserComponent implements OnInit {
   }
 
   editSubmit():void{
-    alert("submit in the form edit");
+    
   }
 }

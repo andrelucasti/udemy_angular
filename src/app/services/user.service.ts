@@ -6,28 +6,33 @@ import 'rxjs/add/operator/map';
 
 
 import { CAPSRNRB_HOST } from 'app/app.api';
-import { Usuario } from "app/models/usuario.model";
+import { User } from "app/models/user.model";
+
 
 
 @Injectable()
-export class UsuariosService { 
+export class UserService { 
 
   constructor(private http: Http) {}
 
-   getUsuarios(): Observable<Usuario[]>{
+   getUsers(): Observable<User[]>{
 
-   return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/`)
+   return this.http.get(`${CAPSRNRB_HOST}/user`)
       .map(response => response.json());
 
 
    }
 
-    getUsuarioById(pId): Observable<Usuario>{
+    getUserById(pId): Observable<User>{
 
-   return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/${pId}`)
+   return this.http.get(`${CAPSRNRB_HOST}/user/${pId}`)
       .map(response => response.json());
 
 
+   }
+
+   deleteUser(pId):Observable<User>{
+     return this.http.delete(`${CAPSRNRB_HOST}/user/${pId}`).map(response => response.json());
    }
 
 

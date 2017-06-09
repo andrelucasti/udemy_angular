@@ -1,12 +1,15 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
-import { FormService } from "app/services/form.service";
-import { UsuariosService } from "app/services/usuarios.service";
-import { Estado } from "app/models/estado.model";
-import { Cidade } from "app/models/cidade.model";
-import { Usuario } from "app/models/usuario.model";
 import { ActivatedRoute } from "@angular/router";
+
+
+
+import { FormService } from "app/services/form.service";
+import { State } from "app/models/state.model";
+import { City } from "app/models/city.model";
+import { User } from "app/models/user.model";
+import { UserService } from "app/services/user.service";
 
 
 @Component({
@@ -17,7 +20,7 @@ import { ActivatedRoute } from "@angular/router";
 export class FormComponent implements OnInit {
 
   constructor(private formService:FormService, 
-              private usuarioService: UsuariosService,
+              private userService: UserService,
               private route: ActivatedRoute) {  }
 
 @Input()
@@ -33,21 +36,21 @@ isColecaoDataTriagem: boolean
 actionPathUrl: string 
 
 @Output()
-submit = new EventEmitter<Usuario>();
+submit = new EventEmitter<User>();
 
 
 
 
-colecaoEstados:Estado[]
-colecaoCidades:Cidade[]
-usuario:Usuario
+collectionStates:State[]
+collectionCity:City[]
+user:User
 
 
   ngOnInit() {
     this.formatFieldMask();
-    this.formService.getEstados().subscribe(pEstados => this.colecaoEstados = pEstados)
-    this.usuarioService.getUsuarioById(this.route.snapshot.params['id']).subscribe(pUsuario => this.usuario = pUsuario)
-    this.formService.getCidades(this.route.snapshot.params['idEstado']).subscribe(pCidades => this.colecaoCidades = pCidades);
+    this.formService.getStates().subscribe(pState => this.collectionStates = pState)
+    this.userService.getUserById(this.route.snapshot.params['id']).subscribe(pUser => this.user = pUser)
+    this.formService.getCitys(this.route.snapshot.params['idState']).subscribe(pCity => this.collectionCity = pCity);
    
   
   }
@@ -58,7 +61,7 @@ usuario:Usuario
 
 
   ngChange(pValue){
-    this.formService.getCidades(pValue).subscribe(pCidades => this.colecaoCidades = pCidades);
+    this.formService.getCitys(pValue).subscribe(pCidades => this.collectionCity = pCidades);
   }
 
 

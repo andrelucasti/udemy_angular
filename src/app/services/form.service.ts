@@ -4,9 +4,10 @@ import { Http } from '@angular/http';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 
-import { Estado } from "app/models/estado.model";
-import { Cidade } from "app/models/cidade.model";
+
 import { CAPSRNRB_HOST } from "app/app.api";
+import { State } from "app/models/state.model";
+import { City } from "app/models/city.model";
 
 
 @Injectable()
@@ -14,14 +15,14 @@ export class FormService {
 
   constructor(private http: Http) { }
 
-  getEstados():Observable<Estado[]>{
-    return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/estados`)
+  getStates():Observable<State[]>{
+    return this.http.get(`${CAPSRNRB_HOST}/states`)
     .map(response => response.json())
   }
 
-  getCidades(pIdEstado):Observable<Cidade[]>{
+  getCitys(pIdState):Observable<City[]>{
     
-    return this.http.get(`${CAPSRNRB_HOST}/service/usuarios/cidades/${pIdEstado}`)
+    return this.http.get(`${CAPSRNRB_HOST}/citys/${pIdState}`)
     .map(response => response.json());
   }
 
