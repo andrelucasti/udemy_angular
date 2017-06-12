@@ -20,6 +20,7 @@ import { FormService } from "app/services/form.service";
 import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-usuario-delete.component';
 import { ModalScreeningDateComponent } from './form/modal-screening-date/modal-screening-date.component';
 import { ModalAddScreeningDateComponent } from './form/modal-screening-date/modal-add-screening-date/modal-add-screening-date.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -35,6 +36,7 @@ import { ModalAddScreeningDateComponent } from './form/modal-screening-date/moda
     ModalUsuarioDeleteComponent,
     ModalScreeningDateComponent,
     ModalAddScreeningDateComponent,
+    LoginComponent,
 
     
   ],
