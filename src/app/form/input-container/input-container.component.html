@@ -1,0 +1,15 @@
+<!--input agora é um template variable abstrato que vai representar qualquer campo do meu form-->
+
+<div class="form-group" 
+						[class.has-danger]="inputInvalid()"
+						[class.has-success]="inputValid()"
+						> 
+						<label for="label"> 
+							<i *ngIf="isIcon" class="material-icons">{{materialIcon}}</i>
+							{{label}} 
+						</label>
+
+            <ng-content></ng-content>  
+
+            <div class="form-control-feedback" *ngIf="inputInvalid()" >{{errorMsg}}</div>
+</div>

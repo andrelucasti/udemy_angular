@@ -21,6 +21,7 @@ import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-u
 import { ModalScreeningDateComponent } from './form/modal-screening-date/modal-screening-date.component';
 import { ModalAddScreeningDateComponent } from './form/modal-screening-date/modal-add-screening-date/modal-add-screening-date.component';
 import { LoginComponent } from './login/login.component';
+import { InputContainerComponent } from './form/input-container/input-container.component';
 
 
 
@@ -37,6 +38,7 @@ import { LoginComponent } from './login/login.component';
     ModalScreeningDateComponent,
     ModalAddScreeningDateComponent,
     LoginComponent,
+    InputContainerComponent,
 
     
   ],

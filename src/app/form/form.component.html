@@ -1,100 +1,63 @@
 	<cps-header></cps-header>
 	<br><br>
 
+		{{form.value | json}}	
+
 		<div class="container fluid">
-		<form method="POST" action="{{actionPathUrl}}">
+		<form method="POST" action="{{actionPathUrl}}" novalidate #form="ngForm">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 	    			<h3 class="panel-title">Dados do usuário</h3>
 	  			</div>
 				
 				<div class="row">
-					<div class="col-sm-12 col-md-6">
-						<label for="inputNome">
-							<i class="material-icons">&#xE851;</i>
-							Nome do usuário
-						</label>
-						
-           				 <input type="text" name="name" class="form-control"  [value]="user?.name"  required />	
-							
+					
+					<div class="col-sm-12 col-md-6">	
+           				<cps-input-container [isIcon]="true" materialIcon="&#xE853;" label="Nome" errorMsg="Campo Obrigatório">
+							<input [(ngModel)]="user.name" type="text" class="form-control form-control-danger form-control-success" name="name" ngModel  required />  
+						</cps-input-container>	
 					</div>
 					
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputNomeMae">
-									<i class="material-icons">&#xE853;</i>
-									Nome da mãe
-							</label>
-							<input type="text" name="motherName" class="form-control"  [value]="user?.motherName" />	
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE853;" label="Nome da mãe" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="motherName" ngModel  required />  
+						</cps-input-container>
 					</div>
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputDataNascimento">
-									<i class="material-icons">&#xE916;</i>
-									Data de nascimento
-							</label>
-						
-							<input type="text" name="dateOfBirth" class="form-control date cadastro" [value]="user?.dateOfBirth"  required/>	
-							
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data de nascimento" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="dateOfBirth" ngModel  required maxlength="10" />  
+						</cps-input-container>	
 					</div>
-					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputNuProtuario">
-								<i class="material-icons">&#xE873;</i>
-									Número do prontuário
-							</label>
-							
-						
-							<input type="text" name="nuProntuario" class="form-control" [value]="user?.nuProntuario" required/>	
 
-						</div>
-					</div>
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputNumSus">
-									<i class="material-icons">&#xE8F7;</i>
-									Número do cartão SUS
-							</label>
-					
-							<input type="text" name="nuCartSus" class="form-control" id="nuCartSus" [value]="user?.nuCartSus" />	
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE873;" label="Número do Prontuário" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="nuProntuario" ngModel  required   />  
+						</cps-input-container>
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE8F7;" label="Número do cartão SUS" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="nuCartSus" ngModel  required   />  
+						</cps-input-container>
 					</div>
 					
           
           			<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputLocalArquivo">
-									<i class="material-icons">&#xE89B;</i>
-									Localização em arquivo
-							</label>
-					
-							<input type="text" name="fileLocal" class="form-control" [value]="user?.fileLocal" required />	
-							
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE89B;" label="Localização em arquivo" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="fileLocal" ngModel  required   />  
+						</cps-input-container>
 					</div>
+
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputTipoDroga">
-									<i class="material-icons">&#xE6DD;</i>
-									Tipo de droga
-							</label>
-													
-							<input type="text" name="drugType" class="form-control" [value]="user?.drugType" required/>
-							
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE6DD;" label="Tipo de droga" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="drugType" ngModel  required   />  
+						</cps-input-container>
 					</div>
+
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputNuTelefone">
-									<i class="material-icons">&#xE0B0;</i>
-									Telefone
-							</label>
-							
-					 		<input type="text" name="phone" class="form-control" id="nuTelefone" [value]="user?.phone" />
-							
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE0B0;" label="Telefone" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="phone" ngModel  required   />  
+						</cps-input-container>
 					</div>
 
 					<div class="col-sm-12 col-md-6">
@@ -110,13 +73,9 @@
 
           					
           			<div  *ngIf="!isColecaoDataTriagem" class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<label for="inputDataTriagem">
-									<i class="material-icons">&#xE916;</i>
-									Data da triágem
-							</label>
-							<input type="text" name="dataTriagem" class="form-control date cadastro" required/>	 
-						</div>
+						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data da triágem" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" name="screeningDate" ngModel  required   />  
+						</cps-input-container>	 
 					</div>
 				</div>
 		</div>
@@ -128,25 +87,29 @@
   				
   				<div class="row">
 					<div class="col-sm-12 col-md-12">
-						<div class="form-group">
-							<input name="street" class="form-control"  placeholder="Rua" [value]="user?.address.street"/>
-						</div>
+						<cps-input-container [isIcon]="false" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Rua" name="street" ngModel  required />  
+						</cps-input-container>	
 					</div>
+
 					<div class="col-sm-12 col-md-12">
-						<div class="form-group">
-							<input name="complement" class="form-control"  placeholder="Complemento" [value]="user?.address.complement" />
-						</div>
+						<cps-input-container [isIcon]="false">
+							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Complemento" name="complement" ngModel />  
+						</cps-input-container>	
 					</div>
+
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<input name="district" class="form-control"  placeholder="Bairro" [value]="user?.address.district"/>
-						</div>
+						<cps-input-container [isIcon]="false" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Bairro" name="district" ngModel  required />  
+						</cps-input-container>
 					</div>
+
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-							<input name="zipCode" class="form-control"  placeholder="Cep" [value]="user?.address.zipCode"/>
-						</div>
+						<cps-input-container [isIcon]="false" errorMsg="Campo Obrigatório">
+							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Cep" name="zipCode" ngModel  required />  
+						</cps-input-container>
 					</div>
+
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
               
@@ -160,10 +123,7 @@
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-
-
-								
+						<div class="form-group">								
 							<select class="form-control" [value]="user?.address.city.id">
                   				<option>Cidade</option>
 								<option *ngFor="let city of collectionCity" value="{{city.id}}">{{city.description}}</option> 
@@ -191,3 +151,8 @@
 
 
 	</cps-modal-screening-date>
+
+
+	<footer style="padding-top: 50px; padding-bottom: 20px;text-align: center">
+			 
+	</footer>

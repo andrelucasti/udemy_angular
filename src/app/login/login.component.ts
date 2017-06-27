@@ -18,8 +18,11 @@ export class LoginComponent implements OnInit {
  username:String = ""
  password:String = ""
 
- go(){
-   this.userService.login(this.username, this.password).subscribe();
+
+ go():void{
+   alert("clicou");
+   alert("User: " + this.username);
  }
+
 
 }
