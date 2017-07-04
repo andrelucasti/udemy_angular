@@ -1,8 +1,7 @@
 	<cps-header></cps-header>
 	<br><br>
 
-		{{form.value | json}}	
-
+		{{form.value | json}}
 		<div class="container fluid">
 		<form method="POST" action="{{actionPathUrl}}" novalidate #form="ngForm">
 			<div class="panel panel-default">
@@ -14,49 +13,49 @@
 					
 					<div class="col-sm-12 col-md-6">	
            				<cps-input-container [isIcon]="true" materialIcon="&#xE853;" label="Nome" errorMsg="Campo Obrigatório">
-							<input [(ngModel)]="user.name" type="text" class="form-control form-control-danger form-control-success" name="name" ngModel  required />  
+							<input 	[(ngModel)]="user.name" type="text" class="form-control form-control-danger form-control-success"  name="name" ngModel  required />  
 						</cps-input-container>	
 					</div>
 					
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE853;" label="Nome da mãe" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="motherName" ngModel  required />  
+							<input [(ngModel)]="user.motherName" type="text" class="form-control form-control-danger form-control-success" name="motherName" ngModel  required />  
 						</cps-input-container>
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data de nascimento" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="dateOfBirth" ngModel  required maxlength="10" />  
+							<input [ngModel]="user.dateOfBirth | date: 'dd/MM/yyyy'" (ngModelChange)="user.dateOfBirth=$event"  id="dateOfBirth" type="text" class="form-control form-control-danger form-control-success" name="dateOfBirth" ngModel  required maxlength="10"  />  
 						</cps-input-container>	
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE873;" label="Número do Prontuário" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="nuProntuario" ngModel  required   />  
+							<input  [(ngModel)]="user.nuProntuario" id="nuProntuario" type="text" class="form-control form-control-danger form-control-success" name="nuProntuario" ngModel  required   />  
 						</cps-input-container>
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE8F7;" label="Número do cartão SUS" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="nuCartSus" ngModel  required   />  
+							<input [(ngModel)]="user.nuCartSus" id="nuCartSus" type="text" class="form-control form-control-danger form-control-success" name="nuCartSus" ngModel  required   />  
 						</cps-input-container>
 					</div>
 					
           
           			<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE89B;" label="Localização em arquivo" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="fileLocal" ngModel  required   />  
+							<input [(ngModel)]="user.fileLocal" type="text" class="form-control form-control-danger form-control-success" name="fileLocal" ngModel  required   />  
 						</cps-input-container>
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE6DD;" label="Tipo de droga" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="drugType" ngModel  required   />  
+							<input [(ngModel)]="user.drugType" type="text" class="form-control form-control-danger form-control-success" name="drugType" ngModel  required   />  
 						</cps-input-container>
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE0B0;" label="Telefone" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="phone" ngModel  required   />  
+							<input [(ngModel)]="user.phone" id="phone" type="text" class="form-control form-control-danger form-control-success" name="phone" ngModel  required   />  
 						</cps-input-container>
 					</div>
 
@@ -74,7 +73,7 @@
           					
           			<div  *ngIf="!isColecaoDataTriagem" class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data da triágem" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" name="screeningDate" ngModel  required   />  
+							<input [(ngModel)]="user.screeningDt.date" type="text" class="form-control form-control-danger form-control-success" name="screeningDate" ngModel  required   />  
 						</cps-input-container>	 
 					</div>
 				</div>
@@ -88,34 +87,33 @@
   				<div class="row">
 					<div class="col-sm-12 col-md-12">
 						<cps-input-container [isIcon]="false" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Rua" name="street" ngModel  required />  
+							<input  [(ngModel)]="user.address.street" type="text" class="form-control form-control-danger form-control-success" placeholder="Rua" name="street" ngModel  required />  
 						</cps-input-container>	
 					</div>
 
 					<div class="col-sm-12 col-md-12">
 						<cps-input-container [isIcon]="false">
-							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Complemento" name="complement" ngModel />  
+							<input [(ngModel)]="user.address.complement" type="text" class="form-control form-control-danger form-control-success" placeholder="Complemento" name="complement" ngModel />  
 						</cps-input-container>	
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="false" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Bairro" name="district" ngModel  required />  
+							<input [(ngModel)]="user.address.district" type="text" class="form-control form-control-danger form-control-success" placeholder="Bairro" name="district" ngModel  required />  
 						</cps-input-container>
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="false" errorMsg="Campo Obrigatório">
-							<input  type="text" class="form-control form-control-danger form-control-success" placeholder="Cep" name="zipCode" ngModel  required />  
+							<input  [(ngModel)]="user.address.zipCode" id="zipCode" type="text" class="form-control form-control-danger form-control-success" placeholder="Cep" name="zipCode" ngModel  required />  
 						</cps-input-container>
 					</div>
 
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">
               
-							<select class="form-control" (change)="ngChange($event.target.value)" [value]="user?.address.city.state.id">
+							<select class="form-control" [(ngModel)]="user.address.city.state.id" (change)="ngChange($event.target.value)" [value]="user?.address?.city.state.id" name="state" ngModel required>
                   				<option>Estado</option>
-								
 								<option *ngFor="let state of collectionStates" value="{{state.id}}">{{state.description}}</option> 
 
              				 </select>
@@ -124,7 +122,7 @@
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<div class="form-group">								
-							<select class="form-control" [value]="user?.address.city.id">
+							<select class="form-control" [(ngModel)]="user?.address?.city.id" [value]="user?.address?.city.id" name="city" ngModel required>
                   				<option>Cidade</option>
 								<option *ngFor="let city of collectionCity" value="{{city.id}}">{{city.description}}</option> 
               				</select>
@@ -136,7 +134,7 @@
   			
   			<div class="row">
   				<div class="col-sm-12 col-md-6">
-					<button type="button" (click)="eventSubmit()" class="btn btn-primary" style="width: 100%;">{{nameButtonSubmit}}</button>
+					<button type="button" (click)="eventSubmit(user)" class="btn btn-primary" style="width: 100%;">{{nameButtonSubmit}}</button>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<a [routerLink]="['']" class="btn btn-danger"  style="width: 100%;">Voltar</a>
@@ -147,6 +145,7 @@
 
 	<cps-modal-screening-date
 	[user]="user"
+	[isButtonNewDate]="true"
 	>
 
 

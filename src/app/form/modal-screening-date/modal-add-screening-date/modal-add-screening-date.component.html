@@ -8,16 +8,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
+       {{formDate.valid}}{{formDate.value|json}}
+      <form #formDate="ngForm" novalidate>
         <div class="modal-body">
+         
           <div class="col-sm-12 col-md-12">
-               <div class="form-group">
-                  <input name="date"  placeholder="dd/MM/yyyy" class="form-control text-center" [value]="screeningDate?.date" />
-                </div>
+             <cps-input-container [isIcon]="false" materialIcon="" label="Inserir nova data:" errorMsg="Campo Obrigatório">
+							<input placeholder="ex: 01/01/2001" id="dateOfBirth" type="text" class="form-control form-control-danger form-control-success" name="date" ngModel  required minlength="10"  />  
+						</cps-input-container>	
             </div>
         </div>
         <div class="modal-footer">
-          <a href="#" (click)="addNewDate()" class="btn btn-primary" style="width: 100%;" data-dismiss="modal">Salvar</a>
+          <button  (click)="addNewDate(formDate.value)" class="btn btn-primary" style="width: 100%;" data-dismiss="modal"  [class.disabled] ="!formDate.valid">Salvar</button>
           <a href="#" class="btn btn-danger" style="width: 100%;" data-dismiss="modal">Fechar</a>
         </div>
       </form> 

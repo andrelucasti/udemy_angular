@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from "@angular/router";
 
-import { UserService } from "app/services/user.service";
+
 import { User } from "app/models/user.model";
-
+import { UserService } from "app/services/user.service";
 
 @Component({
   selector: 'cps-modal-usuario-delete',
@@ -11,7 +12,7 @@ import { User } from "app/models/user.model";
 })
 export class ModalUsuarioDeleteComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private router:Router) { }
 
  
   
@@ -25,9 +26,17 @@ export class ModalUsuarioDeleteComponent implements OnInit {
 
 
   deleteUsuario(pId):void{
-    this.userService.deleteUser(pId).subscribe()
+    console.log("UsuarioID:" + pId)
+    console.log("UsuarioID:" + this.user.id)
+    this.userService.deleteUser(pId).subscribe(responseCode=>{
+      this.refresh()
+       console.log(responseCode) // if not code 200?
+    })
   }
 
+  refresh():void{
+    window.location.reload();
+  }
   
 
 

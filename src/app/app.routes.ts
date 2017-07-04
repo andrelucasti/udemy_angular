@@ -11,7 +11,7 @@ export const ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: '', component: HomeComponent},
     {path: 'new', component: FormInsertUserComponent},
-    {path: 'edit/:id', component: FormEditUserComponent},
+    {path: 'edit/:id/:idState', component: FormEditUserComponent},
     {path: 'user', component: FormGetUserComponent},
     {path: 'user/:id/:idState', component: FormGetUserComponent}
 ]

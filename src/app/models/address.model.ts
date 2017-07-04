@@ -1,7 +1,9 @@
 import { City } from "app/models/city.model";
 
-export interface Address {
-
+export class Address {
+    constructor(){
+        
+    }
     id:             number
     numero:         number
    
@@ -10,7 +12,7 @@ export interface Address {
     complement:     string
     district:       string
 
-    city:           City
+    city:           City = new City()
 
     /*  "address": {
             "id": 3,

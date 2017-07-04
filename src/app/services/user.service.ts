@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
@@ -13,7 +13,6 @@ import { User } from "app/models/user.model";
 @Injectable()
 export class UserService { 
 
-  private headers = new Headers();
  
 
   constructor(private http: Http) {}
@@ -40,10 +39,19 @@ export class UserService {
    }
 
 
-  //Falta TESTAR!!!
- /* saveUsers(pUsuario:Usuario): Observable<Response>{
-    return this.http.post(`${CAPSRNRB_HOST}/capsadrnrb/service/usuarios/`, JSON.stringify(pUsuario)).map(response => response.json());
-  }*/
+  saveUser(pUser:User): Observable<String>{
+    const headers= new Headers();
+    headers.append("Content-Type","application/json")
+    return this.http.post(`${CAPSRNRB_HOST}/user`, JSON.stringify(pUser), new RequestOptions({headers: headers})).map(response => response.json());
+  }
+
+  editUser(pUser:User):Observable<String>{
+    const headers= new Headers();
+    headers.append("Content-Type","application/json")
+
+    return this.http.put(`${CAPSRNRB_HOST}/user`, JSON.stringify(pUser), new RequestOptions({headers: headers})).map(response => response.json());
+
+  }
 
   
 

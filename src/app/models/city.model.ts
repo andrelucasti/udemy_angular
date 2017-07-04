@@ -1,12 +1,16 @@
 import { State } from "app/models/state.model";
 
-export interface City {
+export class City {
     
+    constructor(){
+        
+    }
+   
     id:            number
 
     description:   string
 
-    state:          State
+    state:          State = new State()
 
      /*   "city": {
                 "id": 87,

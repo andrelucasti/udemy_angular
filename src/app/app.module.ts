@@ -22,6 +22,7 @@ import { ModalScreeningDateComponent } from './form/modal-screening-date/modal-s
 import { ModalAddScreeningDateComponent } from './form/modal-screening-date/modal-add-screening-date/modal-add-screening-date.component';
 import { LoginComponent } from './login/login.component';
 import { InputContainerComponent } from './form/input-container/input-container.component';
+import { ModalViewUserComponent } from './form/modal-view-user/modal-view-user.component';
 
 
 
@@ -39,6 +40,7 @@ import { InputContainerComponent } from './form/input-container/input-container.
     ModalAddScreeningDateComponent,
     LoginComponent,
     InputContainerComponent,
+    ModalViewUserComponent,
 
     
   ],

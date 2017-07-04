@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 import { ScreeningDate } from "app/models/screening-date.model";
+import { User } from "app/models/user.model";
+import { UserService } from "app/services/user.service";
 
 @Component({
   selector: 'cps-modal-add-screening-date',
@@ -8,15 +11,27 @@ import { ScreeningDate } from "app/models/screening-date.model";
 })
 export class ModalAddScreeningDateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService) { }
+ 
 
   ngOnInit() {
   }
 
-  screeningDate:ScreeningDate
+  @Input()
+  user:User
 
-  addNewDate():void{
-    console.log(this.screeningDate.date);
+  addNewDate(pValue):void{
+    let screeningDate:ScreeningDate = new ScreeningDate()
+    screeningDate.date = new Date(pValue.date).getTime()
+ 
+    this.user.screeningDate.push(screeningDate)
+    
+    this.userService.editUser(this.user).subscribe(idStatus=>{
+      console.log(idStatus)
+    })
+    
   }
+
+  
 
 }

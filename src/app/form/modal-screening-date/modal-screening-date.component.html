@@ -23,7 +23,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a data-toggle="modal" href="#modal-add-screening-date" class="btn btn-primary" style="width: 100%;"gi>Nova Data</a>
+        <div *ngIf="isButtonNewDate" style="width: 100%;">
+          <a data-toggle="modal" href="#modal-add-screening-date" class="btn btn-primary" style="width: 100%;">Nova Data</a>
+        </div>
         <a href="#" class="btn btn-danger" style="width: 100%;" data-dismiss="modal">Fechar</a>
       </div>
     </div>
@@ -31,7 +33,11 @@
   </div>
 </div>
 
-<cps-modal-add-screening-date></cps-modal-add-screening-date>
+<cps-modal-add-screening-date
+  [user]="user"
+>
+
+</cps-modal-add-screening-date>
 
 
 

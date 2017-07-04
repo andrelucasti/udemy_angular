@@ -1,9 +1,14 @@
-export interface State {
+export class State {
+
+  constructor(){
+    
+  }
+    
   
    id:      number
 
    uf:      string
-   nome:    string
+   description:    string
 
      /*  "state": {
                     "id": 1,

@@ -1,0 +1,134 @@
+<div class="modal fade" id="modal-view{{user?.id}}">
+  <div class="modal-dialog" role="document">
+   
+    <div class="modal-content"> 
+      <div class="modal-header">
+        <h5 class="modal-title">Dados do usuário: {{user?.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+					
+					<div class="col-sm-12 col-md-6">	
+           	<cps-input-container [isIcon]="true" materialIcon="&#xE853;" label="Nome" errorMsg="Campo Obrigatório">
+							<input 	[(ngModel)]="user.name" type="text" class="form-control form-control-danger form-control-success"  name="name" disabled />  
+						</cps-input-container>	
+					</div>
+					
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE853;" label="Nome da mãe" errorMsg="Campo Obrigatório">
+							<input [(ngModel)]="user.motherName" type="text" class="form-control form-control-danger form-control-success" name="motherName" disabled />  
+						</cps-input-container>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data de nascimento" errorMsg="Campo Obrigatório">
+							<input [ngModel]="user.dateOfBirth | date: 'dd/MM/yyyy'" (ngModelChange)="user.dateOfBirth=$event"  id="dateOfBirth" type="text" class="form-control form-control-danger form-control-success" name="dateOfBirth" disabled  />  
+						</cps-input-container>	
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE873;" label="Número do Prontuário" errorMsg="Campo Obrigatório">
+							<input  [(ngModel)]="user.nuProntuario" id="nuProntuario" type="text" class="form-control form-control-danger form-control-success" name="nuProntuario" disabled   />  
+						</cps-input-container>
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE8F7;" label="Número do cartão SUS" errorMsg="Campo Obrigatório">
+							<input [(ngModel)]="user.nuCartSus" id="nuCartSus" type="text" class="form-control form-control-danger form-control-success" name="nuCartSus" disabled   />  
+						</cps-input-container>
+					</div>
+					
+          
+          			<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE89B;" label="Localização em arquivo" errorMsg="Campo Obrigatório">
+							<input [(ngModel)]="user.fileLocal" type="text" class="form-control form-control-danger form-control-success" name="fileLocal" disabled  />  
+						</cps-input-container>
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE6DD;" label="Tipo de droga" errorMsg="Campo Obrigatório">
+							<input [(ngModel)]="user.drugType" type="text" class="form-control form-control-danger form-control-success" name="drugType" disabled   />  
+						</cps-input-container>
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						<cps-input-container [isIcon]="true" materialIcon="&#xE0B0;" label="Telefone" errorMsg="Campo Obrigatório">
+							<input [(ngModel)]="user.phone" id="phone" type="text" class="form-control form-control-danger form-control-success" name="phone" disabled  />  
+						</cps-input-container>
+					</div>
+
+					<div class="col-sm-12 col-md-6">
+						
+					</div>
+          			
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group">
+							<!--Colecao de datas chama o modal de datas-->
+							 	<a data-toggle="modal" href="#modal-screening-date{{user?.id}}" class="btn btn-warning" style="width: 100%;">Datas de Triagem</a>
+						</div>
+					</div>
+
+        </div>
+
+        <div class="panel panel-default">
+				<div class="panel-heading">
+    				<h3 class="panel-title"><i class="material-icons">&#xE0C8;</i>Endereço</h3>
+  				</div>
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <cps-input-container [isIcon]="false"  label="Rua">
+                <input  [(ngModel)]="user.address.street" type="text" class="form-control form-control-danger form-control-success" placeholder="Rua" name="street" disabled />  
+              </cps-input-container>	
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+              <cps-input-container [isIcon]="false" label="Complemento">
+                <input [(ngModel)]="user.address.complement" type="text" class="form-control form-control-danger form-control-success" placeholder="Complemento" disabled />  
+              </cps-input-container>	
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <cps-input-container [isIcon]="false"  label="Bairro" >
+                <input [(ngModel)]="user.address.district" type="text" class="form-control form-control-danger form-control-success" placeholder="Bairro" name="district" disabled/>  
+              </cps-input-container>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <cps-input-container [isIcon]="false"  label="Cep">
+                <input  [(ngModel)]="user.address.zipCode" id="zipCode" type="text" class="form-control form-control-danger form-control-success" placeholder="Cep" name="zipCode" disabled />  
+              </cps-input-container>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <cps-input-container [isIcon]="false" label="Estado">
+                <input [(ngModel)]="user.address.city.state.description"  type="text" class="form-control form-control-danger form-control-success"  name="state" disabled />  
+              </cps-input-container>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <cps-input-container [isIcon]="false" label="Cidade">
+                <input [(ngModel)]="user.address.city.description"  type="text" class="form-control form-control-danger form-control-success"  name="state" disabled />  
+              </cps-input-container>
+            </div>
+				</div>
+        </div>
+   
+      </div>
+      <div class="modal-footer">
+        <!--Criar botão relatorio-->
+        <a href="#" class="btn btn-danger" style="width: 100%;" data-dismiss="modal">Fechar</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+	<cps-modal-screening-date
+	  [user]="user"
+    [isButtonNewDate]="false"
+	>
+	</cps-modal-screening-date>

@@ -17,4 +17,7 @@ export class ModalScreeningDateComponent implements OnInit {
   @Input()
   user: User
 
+  @Input()
+  isButtonNewDate:boolean
+
 }

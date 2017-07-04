@@ -2,7 +2,11 @@ import { State } from './state.model'
 import { ScreeningDate } from "app/models/screening-date.model";
 import { Address } from "app/models/address.model";
 
-export interface User {
+export class User {
+
+    constructor(){
+        
+    }
 
     id:                     number
     nuProntuario:           number
@@ -15,9 +19,11 @@ export interface User {
     drugType:               string
     phone:                  string
     
-    address:                Address
+    address:                Address = new Address();
     
-    screeningDate:          ScreeningDate[]
+    screeningDate:          ScreeningDate[] = new Array<ScreeningDate>()
+    screeningDt:            ScreeningDate = new ScreeningDate();
+
 
 
 

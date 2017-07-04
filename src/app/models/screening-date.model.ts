@@ -1,4 +1,9 @@
-export interface ScreeningDate {
+export class ScreeningDate {
+
+constructor(){
+    
+}
+  
     id:         number
     date:       number
 

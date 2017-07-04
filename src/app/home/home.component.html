@@ -95,12 +95,12 @@
 							<td> {{user.nuCartSus}} </td>
 							<td> {{user.fileLocal}} </td>
 								<td class="text-center">
-									<a href="" class="btn btn-primary"> 
+									<a [routerLink]="['/edit', user.id, user.address.city.state.id]" class="btn btn-primary"> 
 										<i class="material-icons">mode_edit</i>
 									</a>
                					</td>
 								<td class="text-center">
-									<a [routerLink]="['/user', user.id, user.address.city.state.id]" class="btn btn-info"> 
+									<a  data-toggle="modal" href="#modal-view{{user.id}}" class="btn btn-info"> 
                    						 <i class="material-icons">visibility</i>
 									</a>
 								</td>
@@ -129,8 +129,12 @@
 
 		<cps-modal-usuario-delete
 			[user] = "user"
-			>
+		>
 		</cps-modal-usuario-delete>	
 
+		<cps-modal-view-user 
+			[user]="user"
+		>
+		</cps-modal-view-user>
 
 	</div>
