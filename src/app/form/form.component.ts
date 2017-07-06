@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
 import { ActivatedRoute } from "@angular/router";
@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
               private formService:FormService,
               private userService: UserService,
               private route: ActivatedRoute
-              //public user:User
+             
               ) {  }
 
 @Input()
@@ -43,7 +43,10 @@ isColecaoDataTriagem: boolean
 actionPathUrl: string 
 
 @Output()
-submit = new EventEmitter<User>();
+submit = new EventEmitter();
+
+@ViewChild('form')
+form: any
 
 
 collectionStates:State[]
@@ -51,21 +54,43 @@ collectionCity:City[]
 
 user:User = new User()
 
+name:string
+motherName:string
+dateOfBirth:number
+nuProntuario:number
+nuCartSus:string
+fileLocal:string
+drugType:string
+phone:string
+screeningDate:number
+street: string
+complement: string
+district: string
+zipCode: string
+idState:number
+idCity:number
+
+isFormValid:boolean = true
+
 
   ngOnInit() {
     this.formatFieldMask()
-    
-    this.formService.getStates().subscribe(pState => this.collectionStates = pState)
-    this.formService.getCitys(this.route.snapshot.params['idState']).subscribe(pCity => this.collectionCity = pCity)
-     
-    this.userService.getUserById(this.route.snapshot.params['id']).subscribe(pUser => this.user = pUser)
+    this.getUser();
 
+    this.formService.getStates().subscribe(pState => this.collectionStates = pState)
+   
+     
+    
   } 
   
-  eventSubmit(pUser:User){
-       console.log(pUser)
-       this.submit.emit(pUser)
-
+  eventSubmit(pUserForm){
+    console.log(pUserForm)
+    if(this.form.valid){
+      this.submit.emit(pUserForm)
+      this.isFormValid = true
+    } else {
+      this.isFormValid = false
+    }
   }
 
 
@@ -76,11 +101,48 @@ user:User = new User()
 
 
   private formatFieldMask():void{
-    $('#phone').mask('(99)9 9999-9999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
-    $('#nuCartSus').mask('999 9999 9999 9999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
-    $('#nuProntuario').mask('999999999999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
+    $('#phone').mask('(99)999999999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
+    $('#nuCartSus').mask('999 9999 9999 9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
+    $('#nuProntuario').mask('999999999999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
     $('#zipCode').mask('99999-999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
-    $('#dateOfBirth').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
+    $('#dateOfBirth').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
+    $('#screeningDate').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
   }
+
+
+
+  private getUser():void{
+    let id = this.route.snapshot.params['id'];
+    if(id !== undefined){
+        this.userService.getUserById(this.route.snapshot.params['id']).subscribe(pUser => {
+        this.user         = pUser
+        
+        this.name         = pUser.name
+        this.motherName   = pUser.motherName
+        this.dateOfBirth  = pUser.dateOfBirth
+        this.nuProntuario = pUser.nuProntuario
+        this.nuCartSus    = pUser.nuCartSus
+        this.fileLocal    = pUser.fileLocal
+        this.drugType     = pUser.drugType
+        this.phone        = pUser.phone
+        
+        this.street       = pUser.address.street
+        this.complement   = pUser.address.complement
+        this.district     = pUser.address.district
+        this.zipCode      = pUser.address.zipCode
+        this.idState      = pUser.address.city.state.id
+        this.idCity       = pUser.address.city.id
+        
+        
+
+      });
+
+       this.formService.getCitys(this.route.snapshot.params['idState']).subscribe(pCity => this.collectionCity = pCity)
+      
+    }
+
+    
+  }
+  
 
 }

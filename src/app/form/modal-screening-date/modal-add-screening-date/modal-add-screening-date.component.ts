@@ -25,10 +25,12 @@ export class ModalAddScreeningDateComponent implements OnInit {
     screeningDate.date = new Date(pValue.date).getTime()
  
     this.user.screeningDate.push(screeningDate)
+
+    console.log(this.user)
     
-    this.userService.editUser(this.user).subscribe(idStatus=>{
+   this.userService.editUser(this.user).subscribe(idStatus=>{
       console.log(idStatus)
-    })
+    });
     
   }
 
