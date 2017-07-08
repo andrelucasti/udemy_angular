@@ -107,7 +107,10 @@ isFormValid:boolean = true
     $('#zipCode').mask('99999-999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
     $('#dateOfBirth').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
     $('#screeningDate').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
+
+   
   }
+
 
 
 

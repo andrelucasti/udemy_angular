@@ -41,10 +41,10 @@ export class InputContainerComponent implements OnInit, AfterContentInit {
 
 
   inputValid():boolean{
-    return this.input.valid && (this.input.pristine || this.input.toutched)
+    return this.input.valid  && (this.input.dirty || this.input.toutched)
   }
 
   inputInvalid():boolean{
-    return this.input.invalid
+    return this.input.invalid && (this.input.untoutched)
   }
 }

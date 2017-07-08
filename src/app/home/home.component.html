@@ -5,12 +5,7 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-6">
 				
-					<span> Quantidade de itens por página:</span>
-					<select name="qtdItensPagina" id="idQtdItensPagina" class="form-control" style="width: 20%;">
-						<option value="10">10</option>
-						<option value="20">20</option>
-						<option value="50">50</option>
-					</select>
+					
 					
 					<!--<div>
 						${msg}
@@ -42,13 +37,9 @@
 				</div> -->
 			</div>
 			<div class="col-sm-12 col-md-6">
-				<a [routerLink]="['/new']"  class="btn btn-primary" style="width: 100%;"> 
-					Novo <i class="material-icons">person_add</i> 
+				<a [routerLink]="['/new']"  class="btn btn-primary" style="width: 100%; font-size: 18px"> 
+					Novo<i class="material-icons">person_add</i> 
 				</a> <br> <br> 
-        		
-				<a [routerLink]="['/user']" class="btn btn-secondary" style="width: 100%;">
-					Consultar <i class="material-icons">search</i>
-				</a>
 			</div>
 		</div>
 
@@ -66,30 +57,23 @@
 				<table id="tabelaInicio" class="table table-bordered table-hover table-responsive">
 					<thead>
 						<tr>
-							<th> 
-								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span> 
-								Nome do usuário
-							</th> 
-							<th> 
-								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
-								Nº Prontuário
-							</th>
-							<th>
-								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
-								Nº SUS
-							</th>
-							<th>
-								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
-								Localização em arq.
-							</th>
+							<th>Nome do usuário</th> 
+							<th>Nº Prontuário</th>
+							<th>Nº SUS</th>
+							<th>Localização em arq.</th>
 							<th class="text-center">Editar</th>
 							<th class="text-center">Visualizar</th>
 							<th class="text-center">Excluir</th>
 						</tr>
 					</thead>
 
+					<tfoot>
+						
+					</tfoot>
+
          		 <tbody>
-						<tr *ngFor="let user of listUser">
+					  
+						<!--	<tr *ngFor="let user of listUser">
 							<td> {{user.name}} </td>
 							<td> {{user.nuProntuario}} </td>
 							<td> {{user.nuCartSus}} </td>
@@ -109,12 +93,10 @@
 										<i class="material-icons">delete</i>
 									</a>
 								</td>
-							</tr>
+							</tr>-->
          			 </tbody>
 
-					<tfoot>
-
-					</tfoot>
+					
 				</table>
 			</div>
 

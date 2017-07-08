@@ -4,12 +4,12 @@
 						[class.has-warning]="inputInvalid()"
 						[class.has-success]="inputValid()"
 						> 
-						<label for="label"> 
+						<label for="label" class="control-label"> 
 							<i *ngIf="isIcon" class="material-icons">{{materialIcon}}</i>
 							{{label}} 
 						</label>
 
             <ng-content></ng-content>  
 
-            <div class="form-control-feedback" *ngIf="inputInvalid()" >{{errorMsg}}</div>
+            <span class="help-block" *ngIf="inputInvalid()" >{{errorMsg}}</span>
 </div>
