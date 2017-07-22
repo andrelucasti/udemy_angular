@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ScreeningDate } from "app/models/screening-date.model";
 import { User } from "app/models/user.model";
 import { UserService } from "app/services/user.service";
+import { AppService } from "app/services/app.service";
 
 @Component({
   selector: 'cps-modal-add-screening-date',
@@ -11,7 +12,8 @@ import { UserService } from "app/services/user.service";
 })
 export class ModalAddScreeningDateComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,
+              private appService:AppService) { }
  
 
   ngOnInit() {
@@ -28,9 +30,20 @@ export class ModalAddScreeningDateComponent implements OnInit {
 
     console.log(this.user)
     
-   this.userService.editUser(this.user).subscribe(idStatus=>{
-      console.log(idStatus)
-    });
+   this.userService.editUser(this.user).subscribe(responseCode=>{
+      
+          let jsonString = JSON.stringify(responseCode);
+          let OAuthASResponse = JSON.parse(jsonString);
+          
+          let OAuthASResponseBody = JSON.parse(OAuthASResponse.body);
+
+          console.log(OAuthASResponse);
+          console.log(OAuthASResponseBody);          
+
+          this.appService.refreshToken(OAuthASResponseBody.refresh_token)
+          
+        }  
+    );
     
   }
 

@@ -15,6 +15,7 @@ import { FormInsertUserComponent } from './form/form-insert-user/form-insert-use
 import { FormEditUserComponent } from './form/form-edit-user/form-edit-user.component';
 import { FormGetUserComponent } from './form/form-get-user/form-get-user.component';
 
+import { AppService } from "app/services/app.service";
 import { UserService } from "app/services/user.service";
 import { FormService } from "app/services/form.service";
 import { ModalUsuarioDeleteComponent } from './home/modal-usuario-delete/modal-usuario-delete.component';
@@ -23,6 +24,9 @@ import { ModalAddScreeningDateComponent } from './form/modal-screening-date/moda
 import { LoginComponent } from './login/login.component';
 import { InputContainerComponent } from './form/input-container/input-container.component';
 import { ModalViewUserComponent } from './form/modal-view-user/modal-view-user.component';
+import { ErrorComponent } from "app/error/error.component";
+import { ErrorServerComponent } from "app/error/error-server/error-server.component";
+
 
 
 
@@ -41,6 +45,8 @@ import { ModalViewUserComponent } from './form/modal-view-user/modal-view-user.c
     LoginComponent,
     InputContainerComponent,
     ModalViewUserComponent,
+    ErrorComponent,
+    ErrorServerComponent,
 
     
   ],
@@ -51,7 +57,7 @@ import { ModalViewUserComponent } from './form/modal-view-user/modal-view-user.c
     RouterModule.forRoot(ROUTES)
     
   ],
-  providers: [UserService, FormService],
+  providers: [AppService, UserService, FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

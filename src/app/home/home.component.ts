@@ -1,6 +1,9 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Router } from "@angular/router";
+
 import { User } from "app/models/user.model";
 import { UserService } from "app/services/user.service";
+import { AppCodes } from "app/app.codes";
 
 
 @Component({
@@ -8,33 +11,34 @@ import { UserService } from "app/services/user.service";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterContentInit {
+export class HomeComponent  implements OnInit, AfterContentInit{
 
-
+  constructor(protected userService: UserService, 
+              protected router:Router) {
+        
+              }
 
   listUser: User[]
-
-  dataSet = [
-              ["1","2", "3", "4", "5", "6","7"]
-            ]
-
-  constructor(private userService: UserService) {}
-
-  ngOnInit() {
+  
+  ngOnInit(){
     
-
-
-
   }
 
-  ngAfterContentInit(){
-    
-    
-    this.userService.getUsers().subscribe(pUser => {
+  /*<div id="tabelaInicio_filter" class="dataTables_filter">
+  <label>Search:
+    <input type="search" class="form-control input-sm teste" placeholder="" aria-controls="tabelaInicio">
+  </label>
+  </div>*/
+
+  
+
+ngAfterContentInit(){
+  
+      this.userService.getUsers().subscribe(pUser => {
+                         
       this.listUser = pUser
-      console.log(pUser)
-     // console.log(JSON.stringify(pUser))
-      
+     
+
       let dataTable = []
 
 
@@ -54,9 +58,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
         row.push(this.buildModalLinkButon(`#modalDelete${pUser[i].id}`,"btn btn-danger", true, "delete" ))
         dataTable.push(row)
       }
-
-      console.log("-----dataTable-----")
-      console.log(dataTable)
       
       
       
@@ -74,19 +75,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
         //      .append("<div id='tabelaInicio_filter' class='dataTables_filter'> <label>Pesquisar: <input type='search' class='form-control input-sm' placeholder='' aria-controls='tabelaInicio'> </label> </div>")
               
     });
-    
-  }
-
-  /*<div id="tabelaInicio_filter" class="dataTables_filter">
-  <label>Search:
-    <input type="search" class="form-control input-sm teste" placeholder="" aria-controls="tabelaInicio">
-  </label>
-  </div>*/
-
-  
-
-
-
+}
 
 buildLinkButon(pLink:string, paramLink:Array<string>, classButton:string, isIcon:boolean=false, icon="", nameButton:string=""  ):string{
   let ret:string = ""

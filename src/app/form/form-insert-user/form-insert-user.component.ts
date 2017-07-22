@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import { UserService } from "app/services/user.service";
 import { User } from "app/models/user.model";
 import { ScreeningDate } from "app/models/screening-date.model";
+import { AppCodes } from "app/app.codes";
+import { AppService } from "app/services/app.service";
 
 @Component({
   selector: 'cps-form-insert-user',
@@ -14,7 +16,7 @@ import { ScreeningDate } from "app/models/screening-date.model";
 export class FormInsertUserComponent implements OnInit {
 
   constructor(private userService: UserService,
-              private router: Router
+              private appService:AppService
                  ) { }
 
   ngOnInit() {
@@ -39,8 +41,11 @@ export class FormInsertUserComponent implements OnInit {
     user.address.city.state.id = parseInt(pUserForm.state)   
     user.address.city.id       = parseInt(pUserForm.city) 
 
-    user.dateOfBirth          = new Date(pUserForm.dateOfBirth).getTime()
-    screeningDate.date        = new Date(pUserForm.screeningDate ).getTime()
+    user.dateOfBirth          = Date.parse(pUserForm.dateOfBirth)  // = new Date(pUserForm.dateOfBirth).getTime()
+    screeningDate.date        =  Date.parse(pUserForm.screeningDate) // new Date(pUserForm.screeningDate ).getMilliseconds()
+
+    console.log("screeningDate:")
+    console.log(screeningDate)
 
     user.screeningDate.push(screeningDate)
 
@@ -55,13 +60,23 @@ export class FormInsertUserComponent implements OnInit {
       
     });
     */
-    this.userService.saveUser(user).subscribe((responseCode:string) =>{
-      this.router.navigate(['/'])
-      console.log(responseCode) // if not code 200?
-      
-    });
-     console.log(user)
-     console.log(pUserForm)
+    this.userService.saveUser(user).subscribe(
+        responseCode => {
+          let jsonString = JSON.stringify(responseCode);
+          let OAuthASResponse = JSON.parse(jsonString);
+          
+          let OAuthASResponseBody = JSON.parse(OAuthASResponse.body);
+
+          console.log(OAuthASResponse);
+          console.log(OAuthASResponseBody);          
+
+          this.appService.refreshToken(OAuthASResponseBody.refresh_token)
+          this.appService.controllerNavigationRedirect(OAuthASResponse.responseStatus)
+
+          
+
+        })
+    
   }
 
 

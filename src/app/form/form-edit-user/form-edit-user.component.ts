@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { User } from "app/models/user.model";
 import { UserService } from "app/services/user.service";
 import { ScreeningDate } from "app/models/screening-date.model";
+import { AppService } from "app/services/app.service";
 
 @Component({
   selector: 'cps-form-edit-user',
@@ -12,7 +13,9 @@ import { ScreeningDate } from "app/models/screening-date.model";
 })
 export class FormEditUserComponent implements OnInit {
 
-  constructor(private userService:UserService, private router:Router, private route: ActivatedRoute) { }
+  constructor(private userService:UserService, 
+              private appService:AppService, 
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
      
@@ -26,11 +29,7 @@ export class FormEditUserComponent implements OnInit {
     let id = this.route.snapshot.params['id'];
     
     this.userService.getUserById(id).subscribe(pUser => {
-      console.log("Consultou a base")
-      console.log(pUser)
-      console.log("FORM")
-      console.log(pUserForm)
-    
+          
       pUser.name                 = pUserForm.name
       pUser.motherName           = pUserForm.motherName
       pUser.nuProntuario         = pUserForm.nuProntuario
@@ -47,17 +46,24 @@ export class FormEditUserComponent implements OnInit {
 
       pUser.dateOfBirth          = new Date(pUserForm.dateOfBirth).getTime()
    
-
-    
-      this.userService.editUser(pUser).subscribe((responseCode:string) =>{
-        this.router.navigate(['/'])
-        console.log(responseCode) // if not code 200?
-        
-      });
-
-      console.log("OBJ Atualizado")
       console.log(pUser)
-      
+    
+      this.userService.editUser(pUser).subscribe(responseCode => {
+          let jsonString = JSON.stringify(responseCode);
+          let OAuthASResponse = JSON.parse(jsonString);
+          
+          let OAuthASResponseBody = JSON.parse(OAuthASResponse.body);
+
+          console.log(OAuthASResponse);
+          console.log(OAuthASResponseBody);          
+
+          this.appService.refreshToken(OAuthASResponseBody.refresh_token)
+          this.appService.controllerNavigationRedirect(OAuthASResponse.responseStatus)
+
+          
+
+        })
+
       
     });
    

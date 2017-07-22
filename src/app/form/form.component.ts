@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 
 
@@ -11,6 +11,8 @@ import { City } from "app/models/city.model";
 import { User} from "app/models/user.model";
 import { UserService } from "app/services/user.service";
 import { ScreeningDate } from "app/models/screening-date.model";
+import { AppCodes } from "app/app.codes";
+
 
 
 
@@ -20,15 +22,18 @@ import { ScreeningDate } from "app/models/screening-date.model";
   styleUrls: ['./form.component.css'],
   providers: [User]
 })
-export class FormComponent implements OnInit {
+export class FormComponent  implements OnInit {
   
 
   constructor(
               private formService:FormService,
-              private userService: UserService,
-              private route: ActivatedRoute
+              protected userService: UserService,
+              private activateRouter: ActivatedRoute,
+              protected router: Router
              
-              ) {  }
+  ) {
+   
+  }
 
 @Input()
 nameButtonSubmit: string
@@ -73,13 +78,11 @@ idCity:number
 isFormValid:boolean = true
 
 
-  ngOnInit() {
-    this.formatFieldMask()
-    this.getUser();
+  ngOnInit() { 
 
+    this.formatFieldMask()
+    this.getUser();  
     this.formService.getStates().subscribe(pState => this.collectionStates = pState)
-   
-     
     
   } 
   
@@ -115,9 +118,9 @@ isFormValid:boolean = true
 
 
   private getUser():void{
-    let id = this.route.snapshot.params['id'];
+    let id = this.activateRouter.snapshot.params['id'];
     if(id !== undefined){
-        this.userService.getUserById(this.route.snapshot.params['id']).subscribe(pUser => {
+        this.userService.getUserById(this.activateRouter.snapshot.params['id']).subscribe(pUser => {
         this.user         = pUser
         
         this.name         = pUser.name
@@ -140,7 +143,7 @@ isFormValid:boolean = true
 
       });
 
-       this.formService.getCitys(this.route.snapshot.params['idState']).subscribe(pCity => this.collectionCity = pCity)
+       this.formService.getCitys(this.activateRouter.snapshot.params['idState']).subscribe(pCity => this.collectionCity = pCity)
       
     }
 

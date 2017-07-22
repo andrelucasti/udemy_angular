@@ -1,0 +1,11 @@
+.page-error{
+    text-align: center;
+    background-color: #6673AD;
+    color: #FFF;
+
+    height: 980px;
+}
+
+.page-error h1{
+    font-size: 10em;
+}
