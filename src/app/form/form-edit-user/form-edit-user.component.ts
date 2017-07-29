@@ -44,7 +44,7 @@ export class FormEditUserComponent implements OnInit {
       pUser.address.city.state.id = parseInt(pUserForm.state)   
       pUser.address.city.id       = parseInt(pUserForm.city) 
 
-      pUser.dateOfBirth          = new Date(pUserForm.dateOfBirth).getTime()
+      pUser.dateOfBirthText          = pUserForm.dateOfBirth
    
       console.log(pUser)
     

@@ -6,6 +6,8 @@ constructor(){
   
     id:         number
     date:       number
+    dateText:   string
+    
 
     /* "screeningDate": [
             {

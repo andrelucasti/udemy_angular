@@ -41,25 +41,14 @@ export class FormInsertUserComponent implements OnInit {
     user.address.city.state.id = parseInt(pUserForm.state)   
     user.address.city.id       = parseInt(pUserForm.city) 
 
-    user.dateOfBirth          = Date.parse(pUserForm.dateOfBirth)  // = new Date(pUserForm.dateOfBirth).getTime()
-    screeningDate.date        =  Date.parse(pUserForm.screeningDate) // new Date(pUserForm.screeningDate ).getMilliseconds()
-
+    user.dateOfBirthText          = pUserForm.dateOfBirth
+    screeningDate.dateText            = pUserForm.screeningDate
     console.log("screeningDate:")
     console.log(screeningDate)
 
     user.screeningDate.push(screeningDate)
 
-    //Refactore... to create one lib for functions
-    /*pUser.dateOfBirth = new Date(pUser.dateOfBirth).getTime()
-    pUser.screeningDt.date = new Date(pUser.screeningDt.date).getTime()
-    pUser.screeningDate.push(pUser.screeningDt)
-    
-    this.userService.saveUser(pUser).subscribe((responseCode:string) =>{
-      this.router.navigate(['/'])
-      console.log(responseCode) // if not code 200?
-      
-    });
-    */
+   
     this.userService.saveUser(user).subscribe(
         responseCode => {
           let jsonString = JSON.stringify(responseCode);

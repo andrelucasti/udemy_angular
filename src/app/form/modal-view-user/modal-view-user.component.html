@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data de nascimento" errorMsg="Campo Obrigatório">
-							<input [ngModel]="user.dateOfBirth | date: 'MM/dd/yyyy'" (ngModelChange)="user.dateOfBirth=$event"  id="dateOfBirth" type="text" class="form-control form-control-danger form-control-success" name="dateOfBirth" disabled  />  
+							<input [ngModel]="user.dateOfBirth | date: 'dd/MM/yyyy'" (ngModelChange)="user.dateOfBirth=$event"  id="dateOfBirth" type="text" class="form-control form-control-danger form-control-success" name="dateOfBirth" disabled  />  
 						</cps-input-container>	
 					</div>
 

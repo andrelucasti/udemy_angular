@@ -13,9 +13,16 @@
         <div *ngFor="let date of user?.screeningDate">
 
         
-        <div class="col-sm-12 col-md-12">
+        <div class="col-sm-12 col-md-12" *ngIf="date.dateText == undefined">
 						<div class="form-group">
-							<input name="date" class="form-control text-center" disabled [value]= "date.date | date: 'MM/dd/yyyy' " />
+							<input name="date" class="form-control text-center" disabled [value]= "date.date | date: 'dd/MM/yyyy' " />
+						</div>
+				</div>
+
+        
+        <div class="col-sm-12 col-md-12" *ngIf="date.dateText != undefined">
+						<div class="form-group">
+							<input name="date" class="form-control text-center" disabled [value]= "date.dateText" />
 						</div>
 				</div>
         

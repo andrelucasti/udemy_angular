@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data de nascimento" errorMsg="Campo Obrigatório">
-							<input [ngModel]="dateOfBirth | date: 'MM/dd/yyyy'"  id="dateOfBirth" type="text" class="form-control form-control-warning form-control-success" name="dateOfBirth" ngModel  required maxlength="10" minlength="10" />  
+							<input [ngModel]="dateOfBirth | date: 'dd/MM/yyyy'"  id="dateOfBirth" type="text" class="form-control form-control-warning form-control-success" name="dateOfBirth" ngModel  required maxlength="10" minlength="10" />  
 						</cps-input-container>	
 					</div>
 
@@ -73,7 +73,7 @@
 
           			<div *ngIf="!isColecaoDataTriagem"  class="col-sm-12 col-md-6">
 						<cps-input-container [isIcon]="true" materialIcon="&#xE916;" label="Data da triágem" errorMsg="Campo Obrigatório">
-							<input [ngModel]="screeningDate | date: 'MM/dd/yyyy'"  id="screeningDate"  type="text" class="form-control form-control-warning form-control-success" name="screeningDate" ngModel maxlength="10" minlength="10"  required  [disabled]="isColecaoDataTriagem" />  
+							<input [ngModel]="screeningDate | date: 'dd/MM/yyyy'"  id="screeningDate"  type="text" class="form-control form-control-warning form-control-success" name="screeningDate" ngModel maxlength="10" minlength="10"  required  [disabled]="isColecaoDataTriagem" />  
 						</cps-input-container>	 
 					</div>
 				</div>

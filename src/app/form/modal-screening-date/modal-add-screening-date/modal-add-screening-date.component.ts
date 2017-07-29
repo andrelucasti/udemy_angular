@@ -24,7 +24,7 @@ export class ModalAddScreeningDateComponent implements OnInit {
 
   addNewDate(pValue):void{
     let screeningDate:ScreeningDate = new ScreeningDate()
-    screeningDate.date = new Date(pValue.date).getTime()
+    screeningDate.dateText = pValue.date
  
     this.user.screeningDate.push(screeningDate)
 

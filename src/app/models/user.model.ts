@@ -11,6 +11,8 @@ export class User {
     id:                     number
     nuProntuario:           number
     dateOfBirth :           number
+    dateOfBirthText :       string
+    
     
     name:                   string
     motherName:             string
