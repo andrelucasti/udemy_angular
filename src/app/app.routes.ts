@@ -7,15 +7,17 @@ import { FormGetUserComponent } from './form/form-get-user/form-get-user.compone
 import { LoginComponent } from "app/login/login.component";
 import { ErrorComponent } from "app/error/error.component";
 import { ErrorServerComponent } from "app/error/error-server/error-server.component";
+import { LogoutComponent } from "app/logout/logout.component";
 
 
 export const ROUTES: Routes = [
-    {path: 'login', component: LoginComponent},
+    {path: '', component: LoginComponent},
+    {path: 'logout', component: LogoutComponent},
     {path: 'error', component: ErrorComponent},
     {path: 'errorServer', component: ErrorServerComponent},
-    {path: '', component: HomeComponent},
+    {path: 'home', component: HomeComponent},
     {path: 'new', component: FormInsertUserComponent},
-    {path: 'edit/:id/:idState', component: FormEditUserComponent},
-    {path: 'user', component: FormGetUserComponent},
-    {path: 'user/:id/:idState', component: FormGetUserComponent}
+    {path: 'edit/:id/:idState', component: FormEditUserComponent}
+    //{path: 'user', component: FormGetUserComponent},
+    //{path: 'user/:id/:idState', component: FormGetUserComponent}
 ]

@@ -106,11 +106,9 @@ isFormValid:boolean = true
   private formatFieldMask():void{
     $('#phone').mask('(99)999999999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
     $('#nuCartSus').mask('999 9999 9999 9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
-    $('#nuProntuario').mask('999999999999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
+    $('#nuProntuario').mask('9999999999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
     $('#zipCode').mask('99999-999', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
-    $('#dateOfBirth').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
-    $('#screeningDate').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
-
+    $('.date').mask('99/99/9999', {translation:  {'Z': {pattern: /[0-9]/, optional: false}}});
    
   }
 

@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 
 import { User } from "app/models/user.model";
 import { UserService } from "app/services/user.service";
+import { AppService } from "app/services/app.service";
 
 @Component({
   selector: 'cps-modal-usuario-delete',
@@ -12,7 +13,7 @@ import { UserService } from "app/services/user.service";
 })
 export class ModalUsuarioDeleteComponent implements OnInit {
 
-  constructor(private userService:UserService, private router:Router) { }
+  constructor(private userService:UserService, private appService:AppService) { }
 
  
   
@@ -29,8 +30,19 @@ export class ModalUsuarioDeleteComponent implements OnInit {
     console.log("UsuarioID:" + pId)
     console.log("UsuarioID:" + this.user.id)
     this.userService.deleteUser(pId).subscribe(responseCode=>{
-      this.refresh()
-       console.log(responseCode) // if not code 200?
+          let jsonString = JSON.stringify(responseCode);
+          let OAuthASResponse = JSON.parse(jsonString);
+          
+          let OAuthASResponseBody = JSON.parse(OAuthASResponse.body);
+
+          console.log(OAuthASResponse);
+          console.log(OAuthASResponseBody);          
+
+          this.appService.refreshToken(OAuthASResponseBody.refresh_token)
+          this.appService.controllerNavigationRedirect(OAuthASResponse.responseStatus)
+          this.refresh()
+          
+          
     })
   }
 

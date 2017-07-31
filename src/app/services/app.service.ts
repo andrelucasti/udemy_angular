@@ -36,7 +36,7 @@ export class AppService {
   }
 
 
-  logout(){
+  logout():void{
       Cookie.delete("access_token");
       this.router.navigate([`${PATH_LOGIN}`])
   }

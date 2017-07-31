@@ -8,13 +8,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-       {{formDate.valid}}{{formDate.value|json}}
       <form #formDate="ngForm" novalidate>
         <div class="modal-body">
          
           <div class="col-sm-12 col-md-12">
              <cps-input-container [isIcon]="false" materialIcon="" label="Inserir nova data:" errorMsg="Campo Obrigatório">
-							<input id="screeningDate" type="text" class="form-control form-control-warning form-control-success" name="date" ngModel  required minlength="10" maxlength="10" />  
+							<input id="screeningDate" type="text" class="form-control form-control-warning form-control-success date" name="date" ngModel  required minlength="10" maxlength="10" />  
 						</cps-input-container>	
             </div>
         </div>

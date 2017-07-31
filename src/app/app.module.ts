@@ -26,6 +26,7 @@ import { InputContainerComponent } from './form/input-container/input-container.
 import { ModalViewUserComponent } from './form/modal-view-user/modal-view-user.component';
 import { ErrorComponent } from "app/error/error.component";
 import { ErrorServerComponent } from "app/error/error-server/error-server.component";
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -47,6 +48,7 @@ import { ErrorServerComponent } from "app/error/error-server/error-server.compon
     ModalViewUserComponent,
     ErrorComponent,
     ErrorServerComponent,
+    LogoutComponent,
 
     
   ],
