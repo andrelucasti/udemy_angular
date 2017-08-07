@@ -28,11 +28,11 @@
 				<div class="col-sm-12 col-md-4"> </div>
 				<div class="col-sm-12 col-md-4">
 					<cps-input-container label="Login/E-mail" errorMsg="O login deve ser informado">
-						<input [ngModel]="username" type="text" class="form-control form-control-danger form-control-success" name="username" ngModel  required  minlength="5">  
+						<input type="text" class="form-control form-control-danger form-control-success" name="username" ngModel  required  minlength="5">  
 					</cps-input-container>
 					
 					<cps-input-container label="Senha" errorMsg="A senha deve ser informada">
-						<input  [ngModel]="password" type="password" class="form-control form-control-danger form-control-success" name="password" ngModel  required  minlength="8">  
+						<input type="password" class="form-control form-control-danger form-control-success" name="password" ngModel  required  minlength="8">  
 					</cps-input-container>
 					
 					<button type="submit" class="btn btn-primary" style="width: 50%;" (click)="doLogin(form.value)">Entrar</button>
