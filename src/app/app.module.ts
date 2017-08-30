@@ -27,6 +27,7 @@ import { ModalViewUserComponent } from './form/modal-view-user/modal-view-user.c
 import { ErrorComponent } from "app/error/error.component";
 import { ErrorServerComponent } from "app/error/error-server/error-server.component";
 import { LogoutComponent } from './logout/logout.component';
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 
 
@@ -59,7 +60,7 @@ import { LogoutComponent } from './logout/logout.component';
     RouterModule.forRoot(ROUTES)
     
   ],
-  providers: [AppService, UserService, FormService],
+  providers: [{provide: LocationStrategy, useClass:HashLocationStrategy},AppService, UserService, FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
