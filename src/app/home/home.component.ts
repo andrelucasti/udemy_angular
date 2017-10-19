@@ -88,7 +88,7 @@ buildLinkButon(pLink:string, paramLink:Array<string>, classButton:string, isIcon
         }
   }
   
-  ret += `<a href="/${pLink}/${params}" class="${classButton}">`
+  ret += `<a href="#/${pLink}/${params}" class="${classButton}">`
   
   isIcon ? ret += `<i class="material-icons">${icon}</i>` : ret += `${nameButton}`  
   
